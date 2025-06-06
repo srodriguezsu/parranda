@@ -1,0 +1,8 @@
+.main-titulo {
+    border: solid 0.9rem;
+    padding: 2rem 8rem;
+    border-radius: 4em;
+    border-color: var(--color-verde);
+    background-color: var(--color-rojo);
+
+}

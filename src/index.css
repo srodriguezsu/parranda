@@ -1,5 +1,9 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --color-amarillo: #E2AF63;
+  --color-rojo: #832323;
+  --color-verde: #245C24;
+
+  font-family: 'Instrument Serif', serif;
   line-height: 1.5;
   font-weight: 400;
 
