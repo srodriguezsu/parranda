@@ -1,0 +1,62 @@
+.card-receta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-rojo);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 20em;
+    margin: 1em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-receta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.receta-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.receta-content {
+    padding: 1rem;
+    text-align: center;
+}
+
+.receta-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    margin: 0.5rem 0;
+}
+
+.receta-author {
+    font-size: 1rem;
+
+    margin: 0.5rem 0;
+}
+
+.receta-rating {
+    font-size: 1rem;
+
+    margin: 0.5rem 0;
+}
+
+.receta-button {
+    background-color: var(--color-verde);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.receta-button:hover {
+    background-color: var(--color-amarillo);
+}

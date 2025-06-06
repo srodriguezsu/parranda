@@ -1,0 +1,11 @@
+.recetas-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+}
+

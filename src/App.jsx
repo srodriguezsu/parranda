@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from "./pages/homePage.jsx";
 import ParrandasPage from "./pages/parrandasPage.jsx";
-import RecetasPage from "./pages/recetasPage.jsx";
+
 import NovenasPage from "./pages/novenasPage.jsx";
 import JuegosPage from "./pages/juegosPage.jsx";
 import NotFound from "./pages/notFound.jsx";
+import RecetasPage from "./pages/recetasPage/index.jsx";
 
 
 function App() {

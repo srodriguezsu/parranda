@@ -1,21 +1,21 @@
 .header-container {
     text-align: center;
-    margin: 0;
     background-color: var(--color-rojo);
-    min-width: 100vw;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header-container h1 {
+
+    flex-grow: 1;
+    text-align: center;
 }
 
 .back-button {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-left: 2rem;
     background: none;
     border: none;
     cursor: pointer;
