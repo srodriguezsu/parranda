@@ -1,7 +1,8 @@
 .header-container {
     text-align: center;
     background-color: var(--color-rojo);
-    width: 100vw;
+    min-width: 99vw;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,4 +22,11 @@
     cursor: pointer;
     font-size: 1.5rem;
     color: white;
+}
+
+@media (max-width: 768px) {
+    .header-container{
+        min-width: 100vw;
+    }
+
 }

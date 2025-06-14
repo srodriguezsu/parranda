@@ -11,7 +11,7 @@ import RecetasPage from "./pages/recetasPage/index.jsx";
 function App() {
     return (
         <Router>
-            <Routes>
+            <Routes >
                 <Route path="/" element={<HomePage />} />
                 <Route path="/salon-de-parrandas" element={<ParrandasPage />} />
                 <Route path="/recetas" element={<RecetasPage />} />

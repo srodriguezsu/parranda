@@ -9,3 +9,22 @@
     font-size: 2rem;
 }
 
+.list-recetas-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex: 2;
+    padding: 0 2em;
+    flex-direction: column;
+}
+
+
+
+@media (max-width: 768px) {
+    .recetas-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+

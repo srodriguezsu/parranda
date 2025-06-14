@@ -6,7 +6,7 @@ const Index = ({ pageTitle }) => {
     const navigate = useNavigate();
 
     return (
-        <div className="header-container">
+        <header className="header-container">
             <button
                 onClick={() => navigate('/')}
                 className="back-button"
@@ -14,7 +14,7 @@ const Index = ({ pageTitle }) => {
                 <i className="fas fa-arrow-left"></i>
             </button>
             <h1>{pageTitle}</h1>
-        </div>
+        </header>
     );
 };
 

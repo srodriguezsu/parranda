@@ -16,7 +16,7 @@ const ListRecetas = () => {
     }, []);
 
     return (
-        <div>
+        <div className="list-recetas-container">
             <h2 className="title">Recetas de la comunidad</h2>
 
             <div className="recetas-list">

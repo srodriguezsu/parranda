@@ -24,52 +24,57 @@ const FormReceta = ({ onSubmit }) => {
     };
 
     return (
-        <form className="form-receta" onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="nombre">Nombre:</label>
-                <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    value={formData.nombre}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <label htmlFor="instrucciones">Instrucciones:</label>
-                <textarea
-                    id="instrucciones"
-                    name="instrucciones"
-                    value={formData.instrucciones}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <label htmlFor="autor">Autor:</label>
-                <input
-                    type="text"
-                    id="autor"
-                    name="autor"
-                    value={formData.autor}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <label htmlFor="imagen">Imagen:</label>
-                <input
-                    type="file"
-                    id="imagen"
-                    name="imagen"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                    required
-                />
-            </div>
-            <button type="submit">Guardar Receta</button>
-        </form>
+        <div className="form-receta-container">
+            <h2 className="title">Comparte tu receta</h2>
+            <form className="form-receta" onSubmit={handleSubmit}>
+                <div>
+                    <label htmlFor="nombre">Nombre:</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        value={formData.nombre}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="instrucciones">Instrucciones:</label>
+                    <textarea
+                        id="instrucciones"
+                        name="instrucciones"
+                        value={formData.instrucciones}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="autor">Autor:</label>
+                    <input
+                        type="text"
+                        id="autor"
+                        name="autor"
+                        value={formData.autor}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="imagen">Imagen:</label>
+                    <input
+                        type="file"
+                        id="imagen"
+                        name="imagen"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        required
+                    />
+                </div>
+                <button type="submit">Guardar Receta</button>
+            </form>
+
+        </div>
+
     );
 };
 

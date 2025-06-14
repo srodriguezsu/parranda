@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Header from "../../components/header/index.jsx";
 
 import ListRecetas from "./listRecetas.jsx";
@@ -8,14 +8,14 @@ import './index.css';
 const Index = () => {
 
     return (
-        <div>
+        <>
             <Header pageTitle={"Sabores de Diciembre"}/>
-            <div className="recetas-container">
+            <main className="recetas-container">
                 <FormReceta />
                 <ListRecetas/>
-            </div>
+            </main>
 
-        </div>
+        </>
     );
 };
 

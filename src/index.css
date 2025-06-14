@@ -21,7 +21,7 @@
 body {
   margin: 0;
   display: flex;
-
+  max-width: 100vw  ;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -34,12 +34,23 @@ h1 {
 
 
 
-p {
+p, textarea, label {
   font-family: Inter, sans-serif;
 }
+
 
 h2   {
   color: black;
   font-family: Inter, sans-serif;
 }
 
+button {
+  padding: 0.7rem;
+  background-color: var(--color-verde);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
