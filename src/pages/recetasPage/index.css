@@ -9,7 +9,7 @@
 
 @media (max-width: 768px) {
     .recetas-container {
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
     }
 }

@@ -28,32 +28,34 @@ const FormReceta = ({ onSubmit }) => {
             <h2 className="title">Comparte tu receta</h2>
             <form className="form-receta" onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="nombre">Nombre:</label>
                     <input
                         type="text"
                         id="nombre"
                         name="nombre"
+                        placeholder="Nombre de la receta"
                         value={formData.nombre}
                         onChange={handleChange}
                         required
                     />
                 </div>
                 <div>
-                    <label htmlFor="instrucciones">Instrucciones:</label>
+
                     <textarea
                         id="instrucciones"
                         name="instrucciones"
+                        placeholder="Escribe las instrucciones de la receta"
                         value={formData.instrucciones}
                         onChange={handleChange}
                         required
                     />
                 </div>
                 <div>
-                    <label htmlFor="autor">Autor:</label>
+
                     <input
                         type="text"
                         id="autor"
                         name="autor"
+                        placeholder="Autor de la receta"
                         value={formData.autor}
                         onChange={handleChange}
                         required

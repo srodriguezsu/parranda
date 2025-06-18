@@ -43,3 +43,228 @@
 
 
 
+/*Intento con Grid*/
+
+
+.grid-layout {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: auto;
+    background-image: url('/src/assets/suelo.png'); /* Replace with the correct path */
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%; /* Ensures the background image takes 100% width */
+}
+
+.item {
+    /*border: 2px solid black;*/
+    background-size: cover; /* Adjusts the image to cover the entire element */
+    background-position: center; /* Centers the image */
+    text-align: center;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+
+.item img {
+    height: auto;
+    width: 100%;
+}
+
+.sofa {
+    grid-column: span 2;
+}
+
+.pesebre {
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+
+
+.mesa-con-comida {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: span 2;
+    transform: translateX(5em);
+}
+
+.comida-image {
+
+    width: 70%;
+    /*height: auto;*/
+    /*max-height: 200px; !* Adjust as needed *!*/
+    z-index: 10;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    margin-bottom: -6rem;
+}
+
+.comida-image:hover {
+    cursor: pointer;
+    transform: scale(1.1); /* Zoom in on hover */
+}
+
+.cafe-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Adjust as needed */
+    z-index: 10;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    transform: translateX(8em);
+}
+
+.arbol-image, .sofa-image {
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    transform: translateY(4em);
+}
+.sonido-image {
+    z-index: 10;
+    transition: transform 0.5s ease; /* Smooth transition for hover effect */
+}
+
+.sonido-image:hover {
+    animation: pulse 0.3s infinite alternate ease-in-out;
+}
+
+.sonido-image {
+
+    transition: transform 0.5s ease; /* Smooth transition for hover effect */
+}
+
+.sonido-image:hover {
+    animation: pulse 0.3s infinite alternate ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.pesebre-image {
+    transition: filter 0.3s ease;
+    /* Optional: if your SVG has transparent areas */
+    shape-rendering: geometricPrecision;
+}
+
+.pesebre-image:hover {
+    filter:
+            drop-shadow(0 0 2px rgba(255, 255, 0, 0.7))
+            drop-shadow(0 0 5px rgba(255, 255, 0, 0.5))
+            drop-shadow(0 0 10px rgba(255, 255, 0, 0.3));
+    animation: pulsate 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulsate {
+    0% {
+        filter:
+                drop-shadow(0 0 2px rgba(0, 51, 255, 0.7))
+                drop-shadow(0 0 5px rgba(0, 72, 255, 0.5))
+                drop-shadow(0 0 10px rgba(0, 34, 255, 0.3));
+    }
+    50% {
+        filter:
+                drop-shadow(0 0 5px rgba(162, 255, 0, 0.8))
+                drop-shadow(0 0 10px rgba(34, 255, 0, 0.6))
+                drop-shadow(0 0 20px rgba(47, 255, 0, 0.4));
+    }
+    100% {
+        filter:
+                drop-shadow(0 0 3px rgba(255, 0, 0, 0.8))
+                drop-shadow(0 0 8px rgba(255, 0, 0, 0.6))
+                drop-shadow(0 0 15px rgba(255, 0, 0, 0.4));
+    }
+}
+/* Responsive tweak for medium screens */
+@media (max-width: 800px) {
+
+    .grid-layout {
+        grid-template-columns: repeat(4, 1fr);
+        min-height: 100vh;
+        grid-template-areas:
+        "puerta puerta mueble mueble"
+        "arbol pesebre pesebre cafe"
+        "sonido sonido mesa mesa";
+        /*TODO: Organizar el suelo*/
+
+    }
+
+
+    .item img{
+        width: 100%;
+        height: auto;
+        transform: unset;
+
+    }
+
+
+    .item {
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        transform: unset;
+    }
+
+
+    .puerta {
+
+        grid-area: puerta;
+
+    }
+
+    .sofa {
+        grid-area: mueble;
+
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    .arbol {
+        grid-area: arbol;
+    }
+    .cafe {
+        grid-area: cafe;
+    }
+    .sonido {
+        grid-area: sonido;
+    }
+
+    .pesebre {
+        grid-area: pesebre;
+    }
+    .mesa-con-comida {
+        grid-area: mesa ;
+
+
+    }
+
+    .main-titulo {
+
+        font-size: 1rem;
+        border: solid 0.4rem;
+        padding: 1rem 1rem;
+        border-radius: 4em;
+        border-color: var(--color-verde);
+        background-color: var(--color-rojo);
+
+        text-align: center;
+        z-index: 10;
+    }
+}
+
