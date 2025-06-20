@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from "./pages/homePage.jsx";
-import ParrandasPage from "./pages/parrandasPage.jsx";
+import ParrandasPage from "./pages/salonPage/index.jsx";
 
 import NovenasPage from "./pages/novenasPage.jsx";
 import JuegosPage from "./pages/juegosPage.jsx";

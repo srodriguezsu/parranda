@@ -1,0 +1,18 @@
+.cancion {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #D9D9D9;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cancion h3 {
+    color: #848282
+}
+
+.cancion p {
+    color: #848282;
+}
