@@ -21,13 +21,13 @@ const HomePage = () => {
                 alt="Arbol de Navidad"
 
             />
-
+            <Link to="/juegos-y-rituales">
             <img
                 className="puerta-image"
                 src="/src/assets/Puerta_abierta.svg"
                 alt="Puerta Abierta"
-
             />
+            </Link>
             <img
                 className="main-image"
                 src="/src/assets/Sofa.svg"

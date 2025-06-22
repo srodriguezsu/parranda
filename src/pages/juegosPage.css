@@ -1,0 +1,85 @@
+.rituales-container {
+  background-color: #D9A25F;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.tarjetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(505px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.tarjeta-ritual {
+  background-color: #7C1C1C;
+  width: 505px;
+  height: 390px;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  border-radius: 25px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  gap: 16px;
+}
+
+.lado-izquierdo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.imagen-ritual {
+  width: 100%;
+  max-width: 210px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.lado-derecho {
+  width: 175px;
+  height: 213px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.lado-derecho h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.lado-derecho p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.contenedor-boton {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.btn-vermas {
+  width: 145px;
+  height: 54px;
+  background-color: #2D6A4F;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 95px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-vermas:hover {
+  background-color: #40916C;
+  transform: scale(1.03);
+}
