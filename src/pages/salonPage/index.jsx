@@ -1,55 +1,84 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from "../../components/header/index.jsx";
 import Cancion from './cancion.jsx';
-import { FaBackward, FaPlay, FaForward } from 'react-icons/fa';
+import Reproductor from './reproductor';
 import './index.css';
 
+const listaCancionesIzq = [
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" }
+];
+
+const listaCancionesDer = [
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" }
+];
+
+const listaCanciones = [...listaCancionesIzq, ...listaCancionesDer];
+
 const ParrandasPage = () => {
-    return (
-        <div>
-            <Header pageTitle={"Salón de Parrandas"}/>
+  const [indiceActual, setIndiceActual] = useState(0);
+  const cancionActual = listaCanciones[indiceActual];
 
-            <main>
-                <div className='cancionesIzq'>
-                    <Cancion nombre="Canción 1" artista="Artista 1" audioSrc="ruta/a/audio1.mp3" />
-                    <Cancion nombre="Canción 2" artista="Artista 2" audioSrc="ruta/a/audio2.mp3" />
-                    <Cancion nombre="Canción 3" artista="Artista 3" audioSrc="ruta/a/audio3.mp3" />
-                    
-                </div>
+  return (
+    <div>
+      <Header pageTitle={"Salón de Parrandas"} />
 
-                <div className='reproductor'>
-                    <div className='display'>
-                        <h1 className='nombreCancion'>Nombre canción</h1>
-                        <h2 className='artista'>Nombre artista</h2>
-                    </div>
-
-                    <div className='controls'>
-                        <button className='btnPrev'><FaBackward size={45} color="#666439"/></button>
-                        <button className='btnPlay'><FaPlay size={60} color="#666439"/></button>
-                        <button className='btnNext'><FaForward size={45} color="#666439"/></button>
-                    </div>
-
-                    <div className='progress-bar'>
-                        <audio className='audio' controls>
-                            <source src="ruta/a/audio.mp3" type="audio/mpeg" />
-                            Tu navegador no soporta la reproducción de audio.
-                        </audio>
-                    </div>
-                
-
-                    <div className='parlante'></div>
-
-                </div>
-
-                <div className='cancionesDer'>                    
-                    <Cancion nombre="Canción 1" artista="Artista 1" audioSrc="ruta/a/audio1.mp3" />
-                    <Cancion nombre="Canción 2" artista="Artista 2" audioSrc="ruta/a/audio2.mp3" />
-                    <Cancion nombre="Canción 3" artista="Artista 3" audioSrc="ruta/a/audio3.mp3" />
-                </div>
-
-            </main>
+      <main>
+        <div className='cancionesIzq'>
+          {listaCancionesIzq.map((c, i) => (
+            <Cancion
+              key={`izq-${i}`}
+              nombre={c.nombre}
+              artista={c.artista}
+              audioSrc={c.audioSrc}
+              onSelect={() => setIndiceActual(i)}
+            />
+          ))}
         </div>
-    );
+
+        <Reproductor
+          cancion={cancionActual}
+          siguiente={() => setIndiceActual((prev) => (prev + 1) % listaCanciones.length)}
+          anterior={() => setIndiceActual((prev) => (prev - 1 + listaCanciones.length) % listaCanciones.length)}
+        />
+
+        <div className='cancionesDer'>
+          {listaCancionesDer.map((c, i) => (
+            <Cancion
+              key={`der-${i}`}
+              nombre={c.nombre}
+              artista={c.artista}
+              audioSrc={c.audioSrc}
+              onSelect={() => setIndiceActual(listaCancionesIzq.length + i)} 
+            />
+          ))}
+        </div>
+      </main>
+    </div>
+  );
 };
 
 export default ParrandasPage;

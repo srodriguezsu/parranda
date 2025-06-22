@@ -1,0 +1,130 @@
+.reproductor {
+    border: 8px solid #4C4646;
+    border-radius: 37px;
+    width: 28%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #808080;
+}
+
+.display{
+    margin-top: 3rem;
+    border: 12px solid #000000;
+    border-radius: 37px;
+    text-align: center;
+    width: 80%;
+    height: 18em;
+    background-color: #245C24 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;     
+    text-align: center;
+    color:#FCEB00
+}
+
+.display h2 {
+    color: #FCEB00;
+}
+
+.controls {
+    display:flex;
+    flex-direction: row;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.btnPrev, .btnNext {
+    border: 5px solid #000;
+    margin-top: 1rem;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 40px;
+    background-color: #D9D9D9;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.btnPrev:hover, .btnNext:hover {
+    background-color: #726f6f;
+}
+
+.btnPlay{
+    border: 5px solid #000;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 40px;
+    background-color: #D9D9D9;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.btnPlay:hover {
+    background-color: #726f6f;
+}
+
+.parlante {
+    width: 80%;
+    height: 33em;
+    background-color: black;
+    border-radius: 37px;
+    margin-left: 1rem;
+    background-color: #333;
+    background-image: radial-gradient(#666 1px, transparent 1px);
+    background-size: 10px 10px;
+    margin-bottom: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+    border: 6px solid #111;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 1rem;
+    color: white;
+    font-size: 1rem;
+}
+
+.barra {
+    position: relative;
+    flex-grow: 1;
+    height: 10px;
+    background: #D9D9D9;
+    border-radius: 5px;
+    margin: 0 1rem;
+}
+
+.progreso {
+    position: absolute;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.cursor {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: yellow;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
