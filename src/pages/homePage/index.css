@@ -1,90 +1,19 @@
-/*.main-container {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: flex-end; !* Push content to bottom *!*/
-/*    align-items: center;*/
-/*    height: 100vh;*/
-/*    width: 100vw;*/
-/*    overflow: hidden;*/
-/*    position: relative;*/
-/*}*/
-
-/*!* Title: position it independently *!*/
-.main-titulo {
-
-    font-size: 2rem;
-    border: solid 0.8rem;
-    padding: 1rem 4rem;
-    border-radius: 4em;
-    border-color: var(--color-verde);
-    background-color: var(--color-rojo);
-
-    text-align: center;
-    z-index: 10;
-}
-
-/*!* Floor image fixed at bottom of viewport *!*/
-/*.suelo-image {*/
-/*    position: fixed;*/
-/*    width: 100%;*/
-/*    left: 0;*/
-/*    bottom: 0;*/
-/*    z-index: 0;*/
-/*}*/
-
-/*!* Scene container just above the floor *!*/
-/*.scene-foreground {*/
-/*    display: flex;*/
-/*    justify-content: space-around;*/
-/*    align-items: flex-end;*/
-/*    width: 100%;*/
-/*    max-width: 1200px;*/
-/*    position: relative;*/
-/*    margin-bottom: 8vh;*/
-/*    z-index: 1;*/
-/*}*/
-
-/*!* Images scaled responsively *!*/
-/*.arbol-image {*/
-/*    width: clamp(100px, 20vw, 400px);*/
-/*    margin-left: clamp(-15vw, -10vw, -5vw);*/
-/*    transform: translateX(-10%);*/
-/*    margin-bottom: 20vh;*/
-/*}*/
-
-
-
-
-
-
-
-/*.puerta-image {*/
-/*    width: clamp(150px, 18vw, 400px);*/
-/*}*/
-
-/*.sofa-image {*/
-/*    width: clamp(120px, 18vw, 300px);*/
-/*}*/
-
-/*.mesa-con-comida {*/
-/*    width: clamp(100px, 15vw, 250px);*/
-/*}*/
-
-
-
-/*Intento con Grid*/
 
 
 .grid-layout {
-    width: 100vw;
+    width: 100%;
+    max-width: 100vw;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     margin: auto;
-    background-image: url('/src/assets/suelo.png'); /* Replace with the correct path */
+    background-image: url('/src/assets/suelo.png');
     background-position: bottom;
     background-repeat: no-repeat;
-    background-size: 100%; /* Ensures the background image takes 100% width */
+    background-size: 100%;
 }
+
+
+
 
 .item {
     /*border: 2px solid black;*/
@@ -108,6 +37,21 @@
 .sofa {
     grid-column: span 2;
 }
+.main-titulo {
+
+    font-size: 2rem;
+    border: solid 0.8rem;
+    padding: 1rem 4rem;
+    border-radius: 4em;
+    border-color: var(--color-verde);
+    background-color: var(--color-rojo);
+    margin-top: 4rem;
+
+    text-align: center;
+    z-index: 10;
+}
+
+
 
 .pesebre {
     grid-row: span 2;
@@ -130,18 +74,15 @@
 }
 
 .comida-image {
-
     width: 70%;
-    /*height: auto;*/
-    /*max-height: 200px; !* Adjust as needed *!*/
     z-index: 10;
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    transition: transform 0.3s ease;
     margin-bottom: -6rem;
 }
 
 .comida-image:hover {
     cursor: pointer;
-    transform: scale(1.1); /* Zoom in on hover */
+    transform: rotateZ(5deg) translateY(-1em);
 }
 
 .cafe-image {
@@ -228,11 +169,30 @@
         "puerta puerta mueble mueble"
         "arbol pesebre pesebre cafe"
         "sonido sonido mesa mesa";
-        /*TODO: Organizar el suelo*/
+
+
+        position: relative;
+        background-size: 0;
 
     }
-
-
+    .grid-layout::before {
+        content: '';
+        position: absolute;
+        top: 33.33%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: inherit;
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+    .arbol, .pesebre, .cafe, .sonido, .mesa {
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
     .item img{
         width: 100%;
         height: auto;
@@ -253,6 +213,7 @@
     .puerta {
 
         grid-area: puerta;
+        padding: 1em;
 
     }
 
@@ -262,6 +223,8 @@
         display: flex;
         justify-content: end;
         align-items: center;
+        gap: 4em;
+
     }
 
     .arbol {
@@ -280,6 +243,11 @@
     .mesa-con-comida {
         grid-area: mesa ;
 
+
+    }
+    .comida-image {
+        width: 70%;
+        z-index: 10;
 
     }
 
