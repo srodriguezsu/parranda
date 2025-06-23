@@ -6,16 +6,65 @@ main {
     padding: 1rem;
 }
 
-.cancionesIzq {
+.cancionesIzq, .cancionesDer {
     width: 33%;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+
+    max-height: 82vh; 
+    overflow-y: auto;    
+    padding-right: 0.5rem;  
 }
 
-.cancionesDer {
-    width: 33%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+.cancionesIzq::-webkit-scrollbar,
+.cancionesDer::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cancionesIzq::-webkit-scrollbar-thumb,
+.cancionesDer::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.cancionesIzq::-webkit-scrollbar-thumb:hover,
+.cancionesDer::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.btnMostrarCanciones {
+  margin: 1rem auto;
+  display: block;
+  background-color: #4C4646;
+  color: #FCEB00;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btnMostrarCanciones:hover {
+  background-color: #333;
+}
+
+@media (max-width: 1060px) {
+    main {
+        flex-direction: column;
+        align-items: center;}
+
+    .reproductor {
+    width: 100%;
+    height: 50rem;}
+
+    .cancionesIzq, .cancionesDer {
+    display: none;}
+
+    .btnMostrarCanciones {
+        display: block;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
 }

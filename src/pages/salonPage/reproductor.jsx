@@ -2,13 +2,16 @@ import React, { useRef, useState, useEffect } from 'react';
 import { FaBackward, FaPlay, FaForward, FaPause } from 'react-icons/fa';
 import './reproductor.css';
 
+// Componente Reproductor que maneja la reproduccion de canciones
 const Reproductor = ({ cancion, siguiente, anterior }) => {
   const audioRef = useRef(null);
 
+    // Estados para manejar la reproduccion, tiempo actual y duracion
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(1);
 
+    // Funcion que permite alternar entre reproducir y pausar la cancion
   const togglePlayPause = () => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -22,6 +25,7 @@ const Reproductor = ({ cancion, siguiente, anterior }) => {
     }
   };
 
+    // Efecto para actualizar el tiempo actual y la duracion de la cancion
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -38,6 +42,7 @@ const Reproductor = ({ cancion, siguiente, anterior }) => {
     };
   }, []);
 
+    // Efecto para cargar y reproducir la cancion seleccionada
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.load();
@@ -46,12 +51,14 @@ const Reproductor = ({ cancion, siguiente, anterior }) => {
     }
   }, [cancion]);
 
+    // Formatea el tiempo en minutos y segundos
   const formatTime = (time) => {
     const mins = Math.floor(time / 60);
     const secs = Math.floor(time % 60).toString().padStart(2, '0');
     return `${mins}:${secs}`;
   };
 
+    // Calcula la posicion del cursor en la barra de progreso
   const cursorPos = (currentTime / duration) * 100;
 
   return (

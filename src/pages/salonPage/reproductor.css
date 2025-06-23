@@ -27,6 +27,7 @@
 
 .display h2 {
     color: #FCEB00;
+    font-size: 2rem;
 }
 
 .controls {
@@ -79,6 +80,7 @@
     background-image: radial-gradient(#666 1px, transparent 1px);
     background-size: 10px 10px;
     margin-bottom: 3rem;
+    margin-top: 1.5rem;
 
     display: flex;
     flex-direction: column;
