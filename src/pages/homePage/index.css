@@ -1,45 +1,74 @@
+/*.main-container {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: flex-end; !* Push content to bottom *!*/
+/*    align-items: center;*/
+/*    height: 100vh;*/
+/*    width: 100vw;*/
+/*    overflow: hidden;*/
+/*    position: relative;*/
+/*}*/
+
+/*!* Title: position it independently *!*/
 .main-titulo {
+
+    font-size: 2rem;
     border: solid 0.8rem;
     padding: 1rem 4rem;
     border-radius: 4em;
     border-color: var(--color-verde);
     background-color: var(--color-rojo);
 
+    text-align: center;
+    z-index: 10;
 }
 
-.main-container {
-    position: relative;
-    height: 100vh;
+/*!* Floor image fixed at bottom of viewport *!*/
+/*.suelo-image {*/
+/*    position: fixed;*/
+/*    width: 100%;*/
+/*    left: 0;*/
+/*    bottom: 0;*/
+/*    z-index: 0;*/
+/*}*/
 
-}
+/*!* Scene container just above the floor *!*/
+/*.scene-foreground {*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*    align-items: flex-end;*/
+/*    width: 100%;*/
+/*    max-width: 1200px;*/
+/*    position: relative;*/
+/*    margin-bottom: 8vh;*/
+/*    z-index: 1;*/
+/*}*/
 
-.suelo-image {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-
-}
-
-.arbol-image {
-    position: absolute;
-    top: 60%;
-    left: 5%;
-    width: 464.95px;
-}
-
-.puerta-image {
-    position: absolute;
-    left: 20%;
-    top: 40%;
-
-}
+/*!* Images scaled responsively *!*/
+/*.arbol-image {*/
+/*    width: clamp(100px, 20vw, 400px);*/
+/*    margin-left: clamp(-15vw, -10vw, -5vw);*/
+/*    transform: translateX(-10%);*/
+/*    margin-bottom: 20vh;*/
+/*}*/
 
 
-.mesa-con-comida {
-    position: absolute;
 
-}
+
+
+
+
+/*.puerta-image {*/
+/*    width: clamp(150px, 18vw, 400px);*/
+/*}*/
+
+/*.sofa-image {*/
+/*    width: clamp(120px, 18vw, 300px);*/
+/*}*/
+
+/*.mesa-con-comida {*/
+/*    width: clamp(100px, 15vw, 250px);*/
+/*}*/
 
 
 

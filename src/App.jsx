@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from "./pages/homePage.jsx";
+import Index from "./pages/homePage/index.jsx";
 import ParrandasPage from "./pages/salonPage/index.jsx";
 
 import NovenasPage from "./pages/novenasPage.jsx";
@@ -12,7 +12,7 @@ function App() {
     return (
         <Router>
             <Routes >
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<Index />} />
                 <Route path="/salon-de-parrandas" element={<ParrandasPage />} />
                 <Route path="/recetas" element={<RecetasPage />} />
                 <Route path="/novenas" element={<NovenasPage />} />
