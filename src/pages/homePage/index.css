@@ -16,9 +16,9 @@
 
 
 .item {
-    /*border: 2px solid black;*/
-    background-size: cover; /* Adjusts the image to cover the entire element */
-    background-position: center; /* Centers the image */
+
+    background-size: cover;
+    background-position: center;
     text-align: center;
     font-size: 1.2rem;
     display: flex;
@@ -26,6 +26,19 @@
     align-items: center;
     justify-content: center;
     height: 50vh;
+}
+
+
+
+
+.puerta-image {
+    transition: transform 0.5s;
+
+}
+
+.puerta-image:hover {
+    transform: scale(0.9) translateY(2rem);
+
 }
 
 
@@ -239,16 +252,17 @@
 
     .pesebre {
         grid-area: pesebre;
+        padding: 1rem;
     }
     .mesa-con-comida {
         grid-area: mesa ;
 
-
     }
     .comida-image {
-        width: 70%;
+        width: 80%;
         z-index: 10;
-
+        transition: transform 0.3s ease;
+        margin-bottom: -2rem;
     }
 
     .main-titulo {

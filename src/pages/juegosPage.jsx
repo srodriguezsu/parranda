@@ -8,12 +8,16 @@ const rituales = [
     nombre: "12 Uvas",
     descripcion: "Come 12 uvas a medianoche pidiendo un deseo por cada una.",
     imagen: "/src/assets/frame_1.svg",
+    animation: <Uvas />,
   },
   {
     id: 2,
     nombre: "Maleta de viajes",
     descripcion: "Da una vuelta a la cuadra con una maleta para atraer viajes.",
     imagen: "/src/assets/frame_1.svg",
+    animation: <Maleta/>,
+
+
   },
   {
     id: 3,
@@ -25,11 +29,13 @@ const rituales = [
     nombre: "Barrido de casa",
     descripcion: "Barre la casa para sacar las malas energías del año viejo.",
     imagen: "/src/assets/frame_1.svg",
+    animation: <Barrido/>
   },
   { id: 5,
     nombre: "Brindis con champán",        
     descripcion: "Brinda con champán a la medianoche para celebrar el nuevo año.",
     imagen: "/src/assets/frame_1.svg",
+    animation: <Champagne/>
   },
   { id: 6,
     nombre: "Velas de colores", 
@@ -62,7 +68,7 @@ const JuegosPage = () => {
         </div>
       </div>
     </div>
-  );
+    );
 };
 
 export default JuegosPage;

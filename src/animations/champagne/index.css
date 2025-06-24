@@ -1,0 +1,124 @@
+/* Container for the toasting scene */
+.toast-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1a1a3a;
+}
+
+/* Champagne glass styling */
+.champagne-glass {
+    position: relative;
+    width: 60px;
+    height: 150px;
+}
+
+.glass-top {
+    position: absolute;
+    width: 40px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 5px 5px 20px 20px;
+    top: 0;
+    overflow: hidden;
+}
+
+.liquid {
+    position: absolute;
+    top: 22%;
+    width: 70%;
+    height: 25%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(255, 255, 240, 0.8));
+    bottom: 0;
+    border-radius: 0 0 15px 15px;
+}
+
+.stem {
+    position: absolute;
+    width: 4px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.8);
+    top: 70px;
+    left: 18px;
+}
+
+.base {
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    top: 130px;
+    left: 17px;
+    transform: translateX(-0.5em);
+}
+
+/* Bubbles */
+.bubbles {
+    position: absolute;
+    top: 50%;
+    width: 70%;
+    height: 5%;
+
+}
+
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: float-up 2s infinite ease-in;
+}
+
+.bubble:nth-child(1) {
+    width: 3px;
+    height: 3px;
+    left: 10px;
+    bottom: 20px;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    width: 4px;
+    height: 4px;
+    left: 25px;
+    bottom: 15px;
+    animation-delay: 0.5s;
+}
+
+.bubble:nth-child(3) {
+    width: 2px;
+    height: 2px;
+    left: 15px;
+    bottom: 10px;
+    animation-delay: 1s;
+}
+
+/* Toasting Animation */
+.left-glass {
+    animation: toast-left 2s infinite ease-in-out;
+}
+
+.right-glass {
+    animation: toast-right 2s infinite ease-in-out;
+}
+
+@keyframes toast-left {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-15deg) translateX(-10px); }
+}
+
+@keyframes toast-right {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg) translateX(-10px); }
+}
+
+@keyframes float-up {
+    0% { transform: translateY(0) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-70px) scale(1.2); opacity: 0; }
+}
