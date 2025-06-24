@@ -6,8 +6,6 @@ import FormReceta from "./formReceta.jsx";
 import './index.css';
 
 const Index = () => {
-
-
     return (
         <>
             <Header pageTitle={"Sabores de Diciembre"}/>
@@ -15,7 +13,6 @@ const Index = () => {
                 <FormReceta />
                 <ListRecetas/>
             </main>
-
         </>
     );
 };

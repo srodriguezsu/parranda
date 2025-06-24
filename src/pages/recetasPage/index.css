@@ -1,17 +1,13 @@
 .recetas-container {
-
     display: flex;
     flex-direction: row;
-
 }
 
 
 @media (max-width: 768px) {
     .recetas-container {
         width: 80%;
-
         flex-direction: column;
         align-items: center;
     }
 }
-

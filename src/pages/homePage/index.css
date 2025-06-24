@@ -1,18 +1,25 @@
-
-
+/* Estilos para la cuadrícula principal */
 .grid-layout {
+    /* Ocupa todo el ancho disponible */
     width: 100%;
     max-width: 100vw;
+    /* Muestra los elementos en cuadrícula */
     display: grid;
+    /* Define 5 columnas iguales */
     grid-template-columns: repeat(5, 1fr);
+    /* Centra la cuadrícula horizontalmente */
     margin: auto;
+    /* Imagen de fondo */
     background-image: url('/src/assets/suelo.png');
+    /* Posición de la imagen */
     background-position: bottom;
+    /* Evita que la imagen se repita */
     background-repeat: no-repeat;
+    /* Tamaño inicial de la imagen */
     background-size: 0;
 }
 
-
+/* Pseudoelemento para mostrar la imagen de fondo */
 .grid-layout::before {
     content: '';
     position: absolute;
@@ -20,66 +27,75 @@
     left: 0;
     right: 0;
     bottom: 0;
+    /* Hereda la imagen de fondo del padre */
     background-image: inherit;
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
+    /* Envía el pseudoelemento al fondo */
     z-index: -1;
 }
 
-
+/* Estilos base para los elementos de la cuadrícula */
 .item {
-
+    /* Ajusta el tamaño del fondo */
     background-size: cover;
+    /* Centra el fondo */
     background-position: center;
+    /* Centra el texto */
     text-align: center;
+    /* Tamaño de fuente */
     font-size: 1.2rem;
+    /* Usa flexbox para alinear contenido */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* Altura del 50% de la ventana */
     height: 50vh;
 }
 
-
-
-
+/* Efecto de escala en la imagen de la puerta */
 .puerta-image {
     transition: transform 0.5s;
-
 }
 
 .puerta-image:hover {
     transform: scale(0.9) translateY(2rem);
-
 }
 
-
+/* Estilos para las imágenes dentro de los elementos */
 .item img {
     height: auto;
     width: 100%;
 }
 
+/* Estilos específicos para algunos elementos */
 .sofa {
+    /* Ocupa 2 columnas */
     grid-column: span 2;
 }
-.main-titulo {
 
+.main-titulo {
+    /* Tamaño de fuente */
     font-size: 2rem;
+    /* Borde */
     border: solid 0.8rem;
     padding: 1rem 4rem;
     border-radius: 4em;
+    /* Colores */
     border-color: var(--color-verde);
     background-color: var(--color-rojo);
+    /* Margen superior */
     margin-top: 4rem;
-
+    /* Centra el texto */
     text-align: center;
+    /* Envía el título al frente */
     z-index: 10;
 }
 
-
-
 .pesebre {
+    /* Ocupa 2 filas */
     grid-row: span 2;
     display: flex;
     flex-direction: column;
@@ -88,13 +104,8 @@
     height: auto;
 }
 
-
-
 .mesa-con-comida {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* Ocupa 2 columnas */
     grid-column: span 2;
     transform: translateX(5em);
 }
@@ -114,34 +125,27 @@
 .cafe-image {
     width: 100%;
     height: auto;
-    max-height: 200px; /* Adjust as needed */
+    max-height: 200px;
     z-index: 10;
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    transition: transform 0.3s ease;
     transform: translateX(8em);
 }
 
 .arbol-image, .sofa-image {
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    transition: transform 0.3s ease;
     transform: translateY(4em);
 }
+
 .sonido-image {
     z-index: 10;
-    transition: transform 0.5s ease; /* Smooth transition for hover effect */
+    transition: transform 0.5s ease;
 }
 
 .sonido-image:hover {
     animation: pulse 0.3s infinite alternate ease-in-out;
 }
 
-.sonido-image {
-
-    transition: transform 0.5s ease; /* Smooth transition for hover effect */
-}
-
-.sonido-image:hover {
-    animation: pulse 0.3s infinite alternate ease-in-out;
-}
-
+/* Animación de pulso */
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -151,9 +155,9 @@
     }
 }
 
+/* Efecto de sombra y animación en la imagen del pesebre */
 .pesebre-image {
     transition: filter 0.3s ease;
-    /* Optional: if your SVG has transparent areas */
     shape-rendering: geometricPrecision;
 }
 
@@ -165,6 +169,7 @@
     animation: pulsate 1.5s ease-in-out infinite alternate;
 }
 
+/* Animación de cambio de color */
 @keyframes pulsate {
     0% {
         filter:
@@ -185,9 +190,10 @@
                 drop-shadow(0 0 15px rgba(255, 0, 0, 0.4));
     }
 }
-/* Responsive tweak for medium screens */
-@media (max-width: 800px) {
 
+/* Estilos para dispositivos con ancho máximo de 800px */
+@media (max-width: 800px) {
+    /* Ajustes en la cuadrícula */
     .grid-layout {
         grid-template-columns: repeat(4, 1fr);
         min-height: 100vh;
@@ -195,29 +201,27 @@
         "puerta puerta mueble mueble"
         "arbol pesebre pesebre cafe"
         "sonido sonido mesa mesa";
-
-
         position: relative;
         background-size: 0;
-
     }
+
+    /* Ajustes en el pseudoelemento */
     .grid-layout::before {
-
         top: 33.33%;
-
     }
+
+    /* Ajustes en los elementos */
     .arbol, .pesebre, .cafe, .sonido, .mesa {
         background-position: top;
         background-size: cover;
         background-repeat: no-repeat;
     }
-    .item img{
+
+    .item img {
         width: 100%;
         height: auto;
         transform: unset;
-
     }
-
 
     .item {
         height: 100%;
@@ -227,30 +231,28 @@
         transform: unset;
     }
 
-
+    /* Asignación de áreas de cuadrícula */
     .puerta {
-
         grid-area: puerta;
         padding: 1em;
-
     }
 
     .sofa {
         grid-area: mueble;
-
         display: flex;
         justify-content: end;
         align-items: center;
         gap: 4em;
-
     }
 
     .arbol {
         grid-area: arbol;
     }
+
     .cafe {
         grid-area: cafe;
     }
+
     .sonido {
         grid-area: sonido;
     }
@@ -259,10 +261,12 @@
         grid-area: pesebre;
         padding: 1rem;
     }
-    .mesa-con-comida {
-        grid-area: mesa ;
 
+    .mesa-con-comida {
+        grid-area: mesa;
     }
+
+    /* Ajustes en la imagen de comida */
     .comida-image {
         width: 80%;
         z-index: 10;
@@ -270,17 +274,15 @@
         margin-bottom: -2rem;
     }
 
+    /* Ajustes en el título */
     .main-titulo {
-
         font-size: 1rem;
         border: solid 0.4rem;
         padding: 1rem 1rem;
         border-radius: 4em;
         border-color: var(--color-verde);
         background-color: var(--color-rojo);
-
         text-align: center;
         z-index: 10;
     }
 }
-

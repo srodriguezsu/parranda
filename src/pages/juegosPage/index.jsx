@@ -55,30 +55,40 @@ const rituales = [
   // Agrega más rituales aquí...
 ];
 
+// Componente principal de la página de índice
 const index = () => {
-    return (
-    <div>
-      <Header pageTitle={"Juegos y Rituales de Año Nuevo"} />
-      <div className="rituales-container">
-         <div className="tarjetas-grid">
+  return (
+      // Contenedor principal de la página
+      <div>
+        {/* Componente de cabecera con título de la página */}
+        <Header pageTitle={"Juegos y Rituales de Año Nuevo"} />
+
+        {/* Contenedor de rituales */}
+        <div className="rituales-container">
+          {/* Grid de tarjetas de rituales */}
+          <div className="tarjetas-grid">
+            {/* Mapeo de la lista de rituales */}
             {rituales.map((ritual) => (
+                // Tarjeta individual de ritual
                 <div className="tarjeta-ritual" key={ritual.id}>
-                    <div className="lado-izquierdo">
-                      {ritual.animation}
+                  {/* Lado izquierdo de la tarjeta */}
+                  <div className="lado-izquierdo">
+                    {/* Animación del ritual */}
+                    {ritual.animation}
+                  </div>
 
-                </div>
+                  {/* Lado derecho de la tarjeta */}
                   <div className="lado-derecho">
-
+                    {/* Título del ritual */}
                     <h3>{ritual.nombre}</h3>
+                    {/* Descripción del ritual */}
                     <p>{ritual.descripcion}</p>
-                    <button>Ver más</button>
                   </div>
                 </div>
             ))}
-         </div>
+          </div>
+        </div>
       </div>
-    </div>
-    );
+  );
 };
-
 export default index;

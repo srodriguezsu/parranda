@@ -5,7 +5,10 @@ const NotFound = () => {
     return (
         <div>
             <Header pageTitle={"404"} />
-            <h1>No pudimos encontrar lo que buscabas</h1>
+            <main>
+                <h2>No pudimos encontrar lo que buscabas</h2>
+            </main>
+
         </div>
     );
 };

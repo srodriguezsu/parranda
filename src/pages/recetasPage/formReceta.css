@@ -1,55 +1,64 @@
+/* Contenedor del formulario de receta */
 .form-receta-container {
+    /* Diseño de columna */
     display: flex;
     justify-content: start;
     align-items: center;
     flex: 1;
     padding: 0 1em;
     flex-direction: column;
-
 }
-.form-receta {
 
+/* Formulario de receta */
+.form-receta {
+    /* Ancho y espaciado */
     width: fit-content;
     margin: 2rem auto;
     max-width: 90vw;
     padding: 1.5rem;
+    /* Estilos visuales */
     background-color: var(--color-rojo);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: white;
-
 }
 
-
+/* Divs dentro del formulario */
 .form-receta div {
+    /* Espaciado entre campos */
     margin-bottom: 1rem;
 }
 
+/* Etiquetas dentro del formulario */
 .form-receta label {
+    /* Diseño de etiqueta */
     display: block;
     font-weight: bold;
     margin-bottom: 0.5rem;
-
 }
 
+/* Campos de texto y área de texto */
 .form-receta input,
 .form-receta textarea {
+    /* Ancho y espaciado */
     width: 95%;
     padding: 0.5rem;
+    /* Estilos visuales */
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
     background-color: white;
     color: black;
-
 }
 
+/* Campo de archivo */
 .form-receta input[type="file"] {
+    /* Ajuste de espaciado */
     padding: 0.3rem;
 }
 
-
-
+/* Efecto hover en el botón */
 .form-receta button:hover {
+    /* Cambio de color de fondo */
     background-color: var(--color-amarillo);
 }

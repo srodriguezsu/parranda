@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 const Index = () => {
     return (
         <div className="grid-layout">
-
-
+            {/* Sección del Árbol de Navidad */}
             <div className="item arbol">
                 <img
                     className="arbol-image"
@@ -15,6 +14,7 @@ const Index = () => {
                 />
             </div>
 
+            {/* Sección de la Puerta con enlace a Juegos y Rituales */}
             <div className="item puerta">
                 <Link to="/juegos-y-rituales" className="puerta-image">
                     <img
@@ -23,9 +23,9 @@ const Index = () => {
                         alt="Puerta Abierta"
                     />
                 </Link>
-
             </div>
 
+            {/* Sección del Sofá con el título principal */}
             <div className="item sofa">
                 <h1 className="main-titulo">Parranda Navideña</h1>
                 <img
@@ -35,36 +35,30 @@ const Index = () => {
                 />
             </div>
 
+            {/* Sección del Pesebre con enlace a Novenas */}
             <div className="item pesebre">
                 <Link to="/novenas" className="pesebre-image">
                     <img
-
                         src="/src/assets/Pesebre.svg"
                         alt="Pesebre"
                     />
                 </Link>
-
             </div>
 
+            {/* Sección del Equipo de Sonido con enlace al Salón de Parrandas */}
             <div className="item sonido">
                 <Link to="/salon-de-parrandas" className="sonido-image">
-                <img
-
+                    <img
                         src="/src/assets/Sonido.svg"
                         alt="Equipo de Sonido"
                     />
-
                 </Link>
-
-
             </div>
 
+            {/* Sección de la Mesa con Comida con enlace a Recetas */}
             <div className="item mesa-con-comida">
-
-
                 <Link to="/recetas" className="comida-image">
-                <img
-
+                    <img
                         src="/src/assets/Comida.svg"
                         alt="Comida"
                     />
@@ -74,9 +68,9 @@ const Index = () => {
                     src="/src/assets/Mesa.svg"
                     alt="Mesa"
                 />
-
             </div>
 
+            {/* Sección del Café */}
             <div className="item cafe">
                 <img
                     className="cafe-image"
@@ -84,7 +78,6 @@ const Index = () => {
                     alt="Sello rojo"
                 />
             </div>
-
         </div>
     );
 };

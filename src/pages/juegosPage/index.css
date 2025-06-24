@@ -1,78 +1,15 @@
-.tarjeta-ritual {
-  display: flex;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background: white;
-  height: 200px; /* Fixed height for cards */
-}
-
-.lado-izquierdo {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  position: relative;
-}
-
-.lado-derecho {
-  flex: 1;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.contenedor-boton {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-}
-
-.btn-vermas {
-  padding: 6px 12px;
-  font-size: 12px;
-  background: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-.tarjetas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-/* Adjust animation elements to fit */
-.wish-animation {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.wish-star {
-  font-size: 2rem;
-}
-
-.wish-text {
-  font-size: 1rem;
-}
-
-
+/* Contenedor de rituales */
 .rituales-container {
+  /* Fondo y espaciado */
   background-color: #D9A25F;
   padding: 2rem;
   min-height: 100vh;
   max-width: 100vw;
 }
 
+/* Grid de tarjetas */
 .tarjetas-grid {
+  /* Diseño de cuadrícula */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr));
   gap: 2rem;
@@ -80,10 +17,11 @@
   margin-top: 2rem;
 }
 
+/* Tarjeta de ritual */
 .tarjeta-ritual {
+  /* Estilos básicos */
   background-color: #7C1C1C;
   width: min(100%, 30rem);
-  /*height: auto;*/
   min-height: 20rem;
   display: flex;
   flex-direction: row;
@@ -93,14 +31,18 @@
   gap: 1rem;
 }
 
+/* Lado izquierdo de la tarjeta */
 .lado-izquierdo {
+  /* Diseño de columna */
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
 }
 
+/* Imagen del ritual */
 .imagen-ritual {
+  /* Tamaño y forma */
   width: 100%;
   max-width: 12rem;
   height: 12rem;
@@ -110,7 +52,9 @@
   margin-bottom: 1rem;
 }
 
+/* Lado derecho de la tarjeta */
 .lado-derecho {
+  /* Diseño de columna */
   width: 10.9375rem;
   height: auto;
   display: flex;
@@ -118,25 +62,32 @@
   justify-content: start;
 }
 
+/* Título y texto del ritual */
 .lado-derecho h3 {
+  /* Tamaño de fuente */
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   margin: 0 0 0.5rem 0;
 }
 
 .lado-derecho p {
+  /* Tamaño de fuente y espaciado */
   font-size: clamp(0.8rem, 1.2vw, 0.9rem);
   line-height: 1.4;
   margin: 0;
 }
 
+/* Contenedor del botón */
 .contenedor-boton {
+  /* Posición y alineación */
   display: flex;
   justify-content: end;
   width: 100%;
   margin-top: auto;
 }
 
+/* Botón de "Ver más" */
 .btn-vermas {
+  /* Estilos básicos */
   width: 9.0625rem;
   height: 3.375rem;
   background-color: #2D6A4F;
@@ -149,6 +100,7 @@
   transition: all 0.3s ease;
 }
 
+/* Efecto hover en el botón */
 .btn-vermas:hover {
   background-color: #40916C;
   transform: scale(1.03);
