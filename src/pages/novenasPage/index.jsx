@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Header from "../components/header";
-import Vela from "../components/vela/index.jsx";
-import BotonNovena from "../components/BotonNovena/index.jsx";
-import ReproductorVillancicos from '../components/reproductor/index.jsx';
-import './novenasPage.css';
+import Header from "../../components/header/index.jsx";
+import Vela from "../../components/vela/index.jsx";
+import BotonNovena from "../../components/BotonNovena/index.jsx";
+import ReproductorVillancicos from '../../components/reproductor/index.jsx';
+import './index.css';
 
-const NovenasPage = () => {
+const index = () => {
     return (
         <div>
             <Header pageTitle={"Novenas de Aguinaldos"}/>
@@ -58,4 +58,4 @@ const NovenasPage = () => {
     );
 };
 
-export default NovenasPage;
+export default index;

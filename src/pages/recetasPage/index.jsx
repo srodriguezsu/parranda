@@ -7,6 +7,7 @@ import './index.css';
 
 const Index = () => {
 
+
     return (
         <>
             <Header pageTitle={"Sabores de Diciembre"}/>

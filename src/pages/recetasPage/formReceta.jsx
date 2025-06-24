@@ -20,6 +20,7 @@ const FormReceta = ({ onSubmit }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        alert("Receta guardada exitosamente");
         onSubmit(formData);
     };
 

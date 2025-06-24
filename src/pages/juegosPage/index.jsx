@@ -1,6 +1,14 @@
 import React from 'react';
-import Header from "../components/header/index.jsx";
-import './juegosPage.css';
+import Header from "../../components/header/index.jsx";
+import './index.css';
+import Uvas from "../../animations/Uvas/index.jsx";
+import Barrido from "../../animations/Barrido/index.jsx";
+import Velas from "../../animations/Velas/index.jsx"
+import Amarilla from "../../animations/Amarilla/index.jsx";
+import Champagne from "../../animations/champagne/index.jsx";
+import Maleta from "../../animations/Maleta/index.jsx";
+
+
 
 const rituales = [
   {
@@ -24,6 +32,7 @@ const rituales = [
     nombre: "Ropa interior amarilla",
     descripcion: "Usa ropa interior amarilla para atraer prosperidad.",
     imagen: "/src/assets/frame_1.svg",
+    animation: <Amarilla/>,
   },
   { id: 4,
     nombre: "Barrido de casa",
@@ -41,11 +50,12 @@ const rituales = [
     nombre: "Velas de colores", 
     descripcion: "Enciende velas de diferentes colores para atraer diversas energías.",
     imagen: "/src/assets/frame_1.svg",
+    animation: <Velas/>
   },
   // Agrega más rituales aquí...
 ];
 
-const JuegosPage = () => {
+const index = () => {
     return (
     <div>
       <Header pageTitle={"Juegos y Rituales de Año Nuevo"} />
@@ -54,21 +64,21 @@ const JuegosPage = () => {
             {rituales.map((ritual) => (
                 <div className="tarjeta-ritual" key={ritual.id}>
                     <div className="lado-izquierdo">
-                    <img src={ritual.imagen} alt={ritual.nombre} className="imagen-ritual" />
-                    <div className="contenedor-boton">
-                      <button className="btn-vermas">Ver más</button>
-                    </div>
+                      {ritual.animation}
+
                 </div>
-                <div className="lado-derecho">
-                <h3>{ritual.nombre}</h3>
-                 <p>{ritual.descripcion}</p>
+                  <div className="lado-derecho">
+
+                    <h3>{ritual.nombre}</h3>
+                    <p>{ritual.descripcion}</p>
+                    <button>Ver más</button>
+                  </div>
                 </div>
-            </div>
-        ))}
-        </div>
+            ))}
+         </div>
       </div>
     </div>
     );
 };
 
-export default JuegosPage;
+export default index;

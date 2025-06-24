@@ -2,10 +2,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Index from "./pages/homePage/index.jsx";
 import ParrandasPage from "./pages/salonPage/index.jsx";
 
-import NovenasPage from "./pages/novenasPage.jsx";
-import JuegosPage from "./pages/juegosPage.jsx";
+
 import NotFound from "./pages/notFound.jsx";
 import RecetasPage from "./pages/recetasPage/index.jsx";
+import NovenasPage from "./pages/novenasPage/index.jsx";
+import JuegosPage from "./pages/juegosPage/index.jsx";
 
 
 function App() {
