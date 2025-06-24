@@ -1,77 +1,102 @@
-/* UnderwearLuck.css */
+/* Contenedor de ropa interior */
 .underwear-container {
+    /* Diseño de centro */
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Tamaño y posición */
     height: 100%;
     width: 100%;
     position: relative;
+    /* Fondo degradado */
     background: linear-gradient(to bottom, #0a0a2a, #1a1a3a);
 }
 
+/* Ropa interior */
 .underwear {
+    /* Tamaño y posición */
     width: 120px;
     height: 180px;
     position: relative;
 }
 
+/* Cintura */
 .waistband {
+    /* Posición y tamaño */
     position: absolute;
     top: 0;
     width: 100%;
     height: 40px;
+    /* Estilos visuales */
     background-color: #ffeb3b;
     border-radius: 10px 10px 0 0;
     box-shadow: 0 0 15px #ffeb3b;
 }
 
+/* Piernas */
 .left-leg, .right-leg {
+    /* Posición y tamaño */
     position: absolute;
     top: 20px;
     width: 50px;
     height: 70px;
+    /* Estilos visuales */
     background-color: #ffeb3b;
     box-shadow: 0 0 15px #ffeb3b;
 }
 
+/* Pierna izquierda */
 .left-leg {
+    /* Posición y borde */
     left: 0;
     border-radius: 0 0 0 20px;
 }
 
+/* Pierna derecha */
 .right-leg {
+    /* Posición y borde */
     right: 0;
     border-radius: 0 0 20px 0;
 }
 
+/* Efecto de brillo */
 .glow-effect {
+    /* Posición y tamaño */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    /* Estilos visuales */
     border-radius: 50%;
     background: radial-gradient(circle at center, rgba(255, 235, 59, 0.8) 0%, rgba(255, 235, 59, 0) 70%);
+    /* Animación */
     animation: pulse 2s infinite alternate;
 }
 
+/* Chispas */
 .sparkles {
+    /* Posición y tamaño */
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
+/* Chispa individual */
 .sparkle {
+    /* Posición y tamaño */
     position: absolute;
     width: 4px;
     height: 4px;
+    /* Estilos visuales */
     background-color: #fff;
     border-radius: 50%;
     opacity: 0;
+    /* Animación */
     animation: sparkle 2s infinite;
 }
 
-/* Position sparkles randomly around the underwear */
+/* Posiciones y retrasos de las chispas */
 .sparkle:nth-child(1) { top: 20%; left: 30%; animation-delay: 0.2s; }
 .sparkle:nth-child(2) { top: 40%; left: 70%; animation-delay: 0.4s; }
 .sparkle:nth-child(3) { top: 60%; left: 20%; animation-delay: 0.6s; }
@@ -81,6 +106,7 @@
 .sparkle:nth-child(7) { top: 70%; left: 70%; animation-delay: 1.4s; }
 .sparkle:nth-child(8) { top: 10%; left: 50%; animation-delay: 1.6s; }
 
+/* Animación de pulso */
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -92,6 +118,7 @@
     }
 }
 
+/* Animación de chispa */
 @keyframes sparkle {
     0% {
         transform: scale(0);

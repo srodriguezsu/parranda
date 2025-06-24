@@ -1,26 +1,33 @@
-/* Container for the toasting scene */
+/* Contenedor de la escena de brindis */
 .toast-container {
+    /* Posición y tamaño */
     position: relative;
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    /* Diseño de centro */
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Fondo degradado */
     background: linear-gradient(to bottom, #0a0a2a, #1a1a3a);
 }
 
-/* Champagne glass styling */
+/* Estilo del vaso de champán */
 .champagne-glass {
+    /* Posición y tamaño */
     position: relative;
     width: 60px;
     height: 150px;
 }
 
+/* Parte superior del vaso */
 .glass-top {
+    /* Posición y tamaño */
     position: absolute;
     width: 40px;
     height: 70px;
+    /* Estilos visuales */
     background: rgba(255, 255, 255, 0.3);
     border: 2px solid rgba(255, 255, 255, 0.8);
     border-radius: 5px 5px 20px 20px;
@@ -28,29 +35,38 @@
     overflow: hidden;
 }
 
+/* Líquido en el vaso */
 .liquid {
+    /* Posición y tamaño */
     position: absolute;
     top: 22%;
     width: 70%;
     height: 25%;
+    /* Estilos visuales */
     background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(255, 255, 240, 0.8));
     bottom: 0;
     border-radius: 0 0 15px 15px;
 }
 
+/* Tallo del vaso */
 .stem {
+    /* Posición y tamaño */
     position: absolute;
     width: 4px;
     height: 60px;
+    /* Estilos visuales */
     background: rgba(255, 255, 255, 0.8);
     top: 70px;
     left: 18px;
 }
 
+/* Base del vaso */
 .base {
+    /* Posición y tamaño */
     position: absolute;
     width: 25px;
     height: 5px;
+    /* Estilos visuales */
     background: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     top: 130px;
@@ -58,22 +74,26 @@
     transform: translateX(-0.5em);
 }
 
-/* Bubbles */
+/* Burbujas */
 .bubbles {
+    /* Posición y tamaño */
     position: absolute;
     top: 50%;
     width: 70%;
     height: 5%;
-
 }
 
+/* Burbuja individual */
 .bubble {
+    /* Posición y tamaño */
     position: absolute;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
+    /* Animación */
     animation: float-up 2s infinite ease-in;
 }
 
+/* Posiciones y retrasos de las burbujas */
 .bubble:nth-child(1) {
     width: 3px;
     height: 3px;
@@ -98,7 +118,7 @@
     animation-delay: 1s;
 }
 
-/* Toasting Animation */
+/* Animación de brindis */
 .left-glass {
     animation: toast-left 2s infinite ease-in-out;
 }
@@ -107,6 +127,7 @@
     animation: toast-right 2s infinite ease-in-out;
 }
 
+/* Definición de las animaciones */
 @keyframes toast-left {
     0%, 100% { transform: rotate(0deg); }
     50% { transform: rotate(15deg) translateX(-20px) translateY(10px); }

@@ -55,7 +55,6 @@ const rituales = [
   // Agrega más rituales aquí...
 ];
 
-// Componente principal de la página de índice
 const index = () => {
   return (
       // Contenedor principal de la página

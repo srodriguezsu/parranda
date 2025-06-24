@@ -1,16 +1,21 @@
-/* CandleRitual.css */
+/* Contenedor del ritual */
 .ritual-container {
+    /* Posición y tamaño */
     position: relative;
     width: 100%;
     height: 100%;
+    /* Diseño de centro */
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Fondo degradado */
     background: linear-gradient(to bottom, #0a0a2a, #1a1a3a);
     overflow: hidden;
 }
 
+/* Altar */
 .altar {
+    /* Posición y tamaño */
     position: relative;
     width: 100%;
     max-width: 600px;
@@ -18,60 +23,77 @@
     z-index: 2;
 }
 
+/* Filas de velas */
 .candle-row {
+    /* Diseño de las filas */
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
 
+/* Fila superior */
 .top-row {
+    /* Posición */
     position: absolute;
     top: 0;
 }
 
+/* Fila inferior */
 .bottom-row {
+    /* Posición */
     position: absolute;
     bottom: 0;
 }
 
+/* Círculo ritual */
 .ritual-circle {
+    /* Posición y tamaño */
     position: absolute;
     width: 350px;
     height: 350px;
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    /* Animación */
     animation: pulse 10s infinite alternate;
 }
 
+/* Animación de pulso */
 @keyframes pulse {
+    /* Definición de la animación */
     0% { transform: scale(1); opacity: 0.3; }
     100% { transform: scale(1.1); opacity: 0.5; }
 }
 
+/* Contenedor de vela */
 .candle-container {
+    /* Diseño del contenedor */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Vela */
 .candle {
+    /* Posición y tamaño */
     position: relative;
     width: 30px;
     height: 100px;
 }
 
+/* Cera de la vela */
 .wax {
+    /* Tamaño y estilo */
     width: 100%;
     height: 100%;
     background-color: var(--candle-color);
     border-radius: 5px;
-    box-shadow:
-            inset -5px 0px 10px rgba(0, 0, 0, 0.2),
-            inset 5px 0px 10px rgba(255, 255, 255, 0.1);
+    box-shadow: inset -5px 0px 10px rgba(0, 0, 0, 0.2), inset 5px 0px 10px rgba(255, 255, 255, 0.1);
 }
 
+/* Mecha de la vela */
 .wick {
+    /* Posición y tamaño */
     position: absolute;
     top: -5px;
     left: calc(50% - 1.5px);
@@ -81,7 +103,9 @@
     z-index: 2;
 }
 
+/* Llama de la vela */
 .flame {
+    /* Posición y tamaño */
     position: absolute;
     top: -25px;
     left: calc(50% - 5px);
@@ -93,25 +117,28 @@
     opacity: 0;
     transform-origin: center bottom;
     z-index: 3;
-    box-shadow:
-            0 0 10px var(--candle-color),
-            0 0 20px var(--candle-color),
-            0 0 30px var(--candle-color);
+    box-shadow: 0 0 10px var(--candle-color), 0 0 20px var(--candle-color), 0 0 30px var(--candle-color);
 }
 
+/* Llama encendida */
 .flame.lit {
+    /* Opacidad y animación */
     opacity: 1;
     animation: flicker 2s infinite alternate;
 }
 
+/* Animación de parpadeo */
 @keyframes flicker {
+    /* Definición de la animación */
     0%, 100% { transform: scale(1); opacity: 0.9; }
     25% { transform: scale(0.9, 1.1); }
     50% { transform: scale(1.1, 0.9); }
     75% { transform: scale(0.95, 1.05); }
 }
 
+/* Resplandor de la llama */
 .glow {
+    /* Posición y tamaño */
     position: absolute;
     top: -50px;
     left: calc(50% - 30px);
@@ -122,22 +149,26 @@
     opacity: 0;
 }
 
+/* Resplandor visible cuando la llama está encendida */
 .flame.lit ~ .glow {
+    /* Opacidad y animación */
     opacity: 0.3;
     animation: glow-pulse 2s infinite alternate;
 }
 
+/* Animación de pulso del resplandor */
 @keyframes glow-pulse {
+    /* Definición de la animación */
     0% { transform: scale(1); opacity: 0.2; }
     100% { transform: scale(1.2); opacity: 0.4; }
 }
 
+/* Soporte de la vela */
 .candle-holder {
+    /* Tamaño y estilo */
     width: 40px;
     height: 10px;
     background-color: #555;
     border-radius: 0 0 5px 5px;
-    box-shadow:
-            inset -3px 0px 5px rgba(0, 0, 0, 0.3),
-            inset 3px 0px 5px rgba(255, 255, 255, 0.1);
+    box-shadow: inset -3px 0px 5px rgba(0, 0, 0, 0.3), inset 3px 0px 5px rgba(255, 255, 255, 0.1);
 }

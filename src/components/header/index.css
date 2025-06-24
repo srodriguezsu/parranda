@@ -1,21 +1,26 @@
+/* Contenedor del encabezado */
 .header-container {
+    /* Estilos y alineación */
     text-align: center;
     background-color: var(--color-rojo);
     min-width: 100vw;
-
+    /* Diseño flexible */
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
+/* Título del encabezado */
 .header-container h1 {
+    /* Tamaño de fuente y crecimiento flexible */
     font-size: 2rem;
     flex-grow: 1;
     text-align: center;
 }
 
+/* Botón de retroceso */
 .back-button {
+    /* Estilos y posición */
     margin-left: 2rem;
     background: none;
     border: none;
@@ -24,9 +29,10 @@
     color: white;
 }
 
+/* Consulta de medios para dispositivos móviles */
 @media (max-width: 768px) {
-    .header-container{
+    /* Ajuste de ancho mínimo para dispositivos móviles */
+    .header-container {
         min-width: 100vw;
     }
-
 }

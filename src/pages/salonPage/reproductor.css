@@ -1,45 +1,56 @@
+/* Reproductor */
 .reproductor {
+    /* Estilos y tamaño */
     border: 8px solid #4C4646;
     border-radius: 37px;
     width: 28%;
     height: 80vh;
+    /* Diseño de columna */
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #808080;
 }
 
-.display{
+/* Pantalla del reproductor */
+.display {
+    /* Estilos y tamaño */
     margin-top: 3rem;
     border: 12px solid #000000;
     border-radius: 37px;
     text-align: center;
     width: 80%;
     height: 18em;
-    background-color: #245C24 ;
+    background-color: #245C24;
+    /* Diseño de centro */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;     
+    align-items: center;
     text-align: center;
-    color:#FCEB00
+    color: #FCEB00;
 }
 
+/* Título en la pantalla */
 .display h2 {
+    /* Estilos de texto */
     color: #FCEB00;
     font-size: 2rem;
 }
 
+/* Controles del reproductor */
 .controls {
-    display:flex;
+    /* Diseño de fila */
+    display: flex;
     flex-direction: row;
     width: 80%;
-    display: flex;
     justify-content: space-around;
     margin-top: 1rem;
 }
 
+/* Botones de navegación */
 .btnPrev, .btnNext {
+    /* Estilos y tamaño */
     border: 5px solid #000;
     margin-top: 1rem;
     width: 8rem;
@@ -51,11 +62,14 @@
     font-size: 1.5rem;
 }
 
+/* Efecto hover en los botones */
 .btnPrev:hover, .btnNext:hover {
     background-color: #726f6f;
 }
 
-.btnPlay{
+/* Botón de reproducción */
+.btnPlay {
+    /* Estilos y tamaño */
     border: 5px solid #000;
     width: 10rem;
     height: 10rem;
@@ -66,11 +80,14 @@
     font-size: 1.5rem;
 }
 
+/* Efecto hover en el botón de reproducción */
 .btnPlay:hover {
     background-color: #726f6f;
 }
 
+/* Parlante */
 .parlante {
+    /* Estilos y tamaño */
     width: 80%;
     height: 33em;
     background-color: black;
@@ -81,20 +98,20 @@
     background-size: 10px 10px;
     margin-bottom: 3rem;
     margin-top: 1.5rem;
-
+    /* Diseño de centro */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     color: white;
     text-align: center;
-
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
     border: 6px solid #111;
 }
 
+/* Barra de progreso */
 .progress-bar {
+    /* Diseño de fila */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -104,7 +121,9 @@
     font-size: 1rem;
 }
 
+/* Barra de progreso */
 .barra {
+    /* Estilos y posición */
     position: relative;
     flex-grow: 1;
     height: 10px;
@@ -113,14 +132,18 @@
     margin: 0 1rem;
 }
 
+/* Progreso */
 .progreso {
+    /* Estilos y posición */
     position: absolute;
     height: 10px;
     background-color: transparent;
     border-radius: 5px;
 }
 
+/* Cursor */
 .cursor {
+    /* Estilos y posición */
     position: absolute;
     top: -5px;
     left: 50%;

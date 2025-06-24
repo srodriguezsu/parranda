@@ -1,37 +1,51 @@
+/* Fondo del modal */
 .modal-fondo {
+  /* Posición fija y tamaño */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  /* Fondo oscuro */
   background-color: rgba(0, 0, 0, 0.7);
+  /* Z-index alto para superponer contenido */
   z-index: 999;
+  /* Diseño de centro */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Contenido del modal */
 .modal-contenido {
+  /* Fondo blanco y estilos */
   background: white;
   padding: 2rem;
   border-radius: 10px;
+  /* Tamaño y scroll */
   width: 80%;
   max-height: 80%;
   overflow-y: auto;
 }
 
+/* Lista de canciones */
 .lista-canciones {
+  /* Sin estilo de lista */
   list-style: none;
   padding: 0;
 }
 
+/* Elementos de la lista */
 .lista-canciones li {
+  /* Estilos y cursor */
   padding: 0.5rem 0;
   border-bottom: 1px solid #ccc;
   cursor: pointer;
 }
 
+/* Botón de cerrar */
 .btnCerrar {
+  /* Posición absoluta y estilos */
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -44,10 +58,13 @@
   cursor: pointer;
 }
 
+/* Lista de canciones en el modal */
 .listaCancionesModal {
+  /* Diseño de columna con gap */
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  /* Tamaño y scroll */
   max-height: 60vh;
   overflow-y: auto;
 }

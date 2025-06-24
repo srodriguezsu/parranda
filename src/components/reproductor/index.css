@@ -1,3 +1,4 @@
+/* Contenedor del reproductor */
 .reproductor-container {
   background-color: #7C1C1C;
   color: white;
@@ -10,7 +11,9 @@
   gap: 1rem;
 }
 
+/* Campo de entrada para la canción */
 .input-cancion {
+  /* Estilos y tamaño */
   background-color: #d3d3d3;
   color: #555;
   padding: 0.5rem 1rem;
@@ -18,40 +21,46 @@
   font-size: 1rem;
 }
 
+/* Contenedor de controles */
 .controles {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+/* Efecto hover en los botones de control */
 .control-btn:hover {
   transform: scale(1.1);
 }
 
+/* Botones de control */
 .control-btn {
-  background: none;
+  background-color: #1E5631;
+  color: white;
   border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.play {
-  background-color: black;
   border-radius: 50%;
-  width: 57px;
-  height: 57px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
-.control-btn svg {
-  width: 36px;
-  height: auto;
-  fill: black; 
+/* Botón de reproducción */
+.play {
+  background-color: #1E5631;
 }
 
+.play:hover {
+  background-color: #2D6A4F;
+}
+
+
+/* Icono en el botón de reproducción */
 .play svg {
+  /* Tamaño y color */
   fill: white;
   width: 24px;
 }
