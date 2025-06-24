@@ -1,63 +1,129 @@
 .novenas-layout {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
   background-color: #D9A25F;
   min-height: 100vh;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .columna-velas {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
-  height: 100%;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
 }
 
 .contenido-central {
-  flex: 1;
+  width: 100%;
   background-color: #7C1C1C;
   border-radius: 20px;
   color: white;
-  max-width: 700px;
-  padding: 2rem;
-  min-height: 500px;
+  padding: 1rem;
+  order: 2;
 }
 
 .titulo-novena {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .columna-derecha {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
+  width: 100%;
+  order: 3;
 }
 
 .velas-izquierda-triangulo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
-  margin-right: 1rem;
+  gap: 1rem;
+  order: 1;
+  width: 100%;
 }
 
 .velas-base {
   display: flex;
-  gap: 3rem;
+  gap: 1rem;
   justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .vela-centro,
 .vela-izquierda,
 .vela-derecha {
-  width: 100px;
+  width: 60px;
   height: auto;
-  margin-top: 630px;
+  margin-top: 0;
 }
 
+
+@media (min-width: 768px) {
+  .novenas-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .contenido-central {
+    order: 0;/* Reset order */
+    padding: 1.5rem;
+  }
+
+  .velas-izquierda-triangulo {
+    order: 0; /* Reset order */
+    gap: 2rem;
+  }
+
+  .velas-base {
+    gap: 2rem;
+  }
+
+  .vela-centro,
+  .vela-izquierda,
+  .vela-derecha {
+    width: 80px;
+  }
+}
+
+/* Desktop Size (1024px and up) */
+@media (min-width: 1024px) {
+  .novenas-layout {
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .contenido-central {
+    max-width: 700px;
+    padding: 2rem;
+  }
+
+  .velas-izquierda-triangulo {
+    gap: 3rem;
+  }
+
+  .velas-base {
+    gap: 3rem;
+  }
+
+  .vela-centro,
+  .vela-izquierda,
+  .vela-derecha {
+    width: 100px;
+  }
+
+  .titulo-novena {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}

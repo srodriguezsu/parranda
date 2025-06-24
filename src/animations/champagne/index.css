@@ -5,9 +5,9 @@
     height: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    background-color: #1a1a3a;
+    background: linear-gradient(to bottom, #0a0a2a, #1a1a3a);
 }
 
 /* Champagne glass styling */
@@ -109,12 +109,12 @@
 
 @keyframes toast-left {
     0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(-15deg) translateX(-10px); }
+    50% { transform: rotate(15deg) translateX(-20px) translateY(10px); }
 }
 
 @keyframes toast-right {
     0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(15deg) translateX(-10px); }
+    50% { transform: rotate(-15deg) translateX(-5px); }
 }
 
 @keyframes float-up {
