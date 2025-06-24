@@ -2,52 +2,64 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 
 const Uvas = () => {
+    // Estados para controlar la uva actual, la visibilidad del deseo y la animación
     const [currentGrape, setCurrentGrape] = useState(0);
     const [wishVisible, setWishVisible] = useState(false);
     const [showGrapes, setShowGrapes] = useState(true);
     const [animationActive, setAnimationActive] = useState(true);
 
+    // Efecto para animar las uvas
     useEffect(() => {
-        if (!animationActive) return;
+        if (!animationActive) return; // No hacer nada si la animación no está activa
 
+        // Intervalo para comer las uvas
         const grapeInterval = setInterval(() => {
             setCurrentGrape(prev => {
                 if (prev >= 11) {
+                    // Si se han comido todas las uvas, detener el intervalo y mostrar el deseo
                     clearInterval(grapeInterval);
                     setShowGrapes(false);
                     setWishVisible(true);
                     return prev;
                 }
-                return prev + 1;
+                return prev + 1; // Comer la siguiente uva
             });
-        }, 800);
+        }, 800); // Intervalo de 800ms
 
+        // Limpiar el intervalo cuando el componente se desmonta
         return () => clearInterval(grapeInterval);
-    }, [animationActive]);
+    }, [animationActive]); // Dependencia de animationActive
 
+    // Efecto para mostrar y ocultar el deseo
     useEffect(() => {
-        if (!wishVisible) return;
+        if (!wishVisible) return; // No hacer nada si el deseo no es visible
 
+        // Temporizador para ocultar el deseo y reiniciar la animación
         const wishTimer = setTimeout(() => {
             setWishVisible(false);
             setShowGrapes(true);
             setCurrentGrape(0);
-            setAnimationActive(prev => !prev); // Toggle to trigger restart
-        }, 2000);
+            setAnimationActive(prev => !prev); // Alternar animationActive para reiniciar la animación
+        }, 2000); // Temporizador de 2s
 
+        // Limpiar el temporizador cuando el componente se desmonta
         return () => clearTimeout(wishTimer);
-    }, [wishVisible]);
+    }, [wishVisible]); // Dependencia de wishVisible
 
-    // Force restart when animationActive changes
+    // Efecto para reiniciar la animación
     useEffect(() => {
         if (!animationActive) {
+            // Temporizador para reactivar la animación después de un breve retraso
             const restartTimer = setTimeout(() => {
                 setAnimationActive(true);
-            }, 50);
+            }, 50); // Temporizador de 50ms
+
+            // Limpiar el temporizador cuando el componente se desmonta
             return () => clearTimeout(restartTimer);
         }
-    }, [animationActive]);
+    }, [animationActive]); // Dependencia de animationActive
 
+    // Renderizado del componente
     return (
         <div className="ritual-container">
             <div className="face">
@@ -67,13 +79,6 @@ const Uvas = () => {
                             style={{ '--i': index }}
                         />
                     ))}
-                </div>
-            )}
-
-            {wishVisible && (
-                <div className="wish-animation">
-                    <div className="wish-star">★</div>
-                    <div className="wish-text">Deseo pedido</div>
                 </div>
             )}
         </div>

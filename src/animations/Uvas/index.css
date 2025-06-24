@@ -1,65 +1,81 @@
+/* Contenedor del ritual */
 .ritual-container {
+    /* Posición y tamaño */
     width: 100%;
-    height: 200px; /* Fixed height */
+    height: 200px;
     position: relative;
     overflow: hidden;
     margin: 0 auto;
+    /* Diseño de centro */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    /* Fondo degradado */
     background: linear-gradient(to bottom, #0a0a2a, #1a1a3a);
     color: white;
     font-family: 'Arial', sans-serif;
     text-align: center;
-
 }
 
+/* Ocultar contenedor de uvas cuando hay animación de deseo */
 .ritual-container:has(.wish-animation) .grapes-container {
     opacity: 0;
     pointer-events: none;
 }
 
-
+/* Cara */
 .face {
-    width: 150px;
-    height: 200px;
+    /* Tamaño y estilo */
+    width: 80px;
+    height: 110px;
     background: #FFDBAC;
     border-radius: 75px 75px 70px 70px;
     position: relative;
     margin-bottom: 50px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    /* Animación */
     animation: faceBounce 0.8s infinite alternate;
 }
 
+/* Ojos */
 .eyes {
+    /* Diseño de los ojos */
     display: flex;
     justify-content: space-around;
     padding-top: 40px;
 }
 
+/* Ojo individual */
 .eye {
-    width: 25px;
-    height: 25px;
+    /* Tamaño y estilo */
+    width: 15px;
+    height: 15px;
     background: #333;
     border-radius: 50%;
+    /* Animación */
     animation: blink 4s infinite;
 }
 
+/* Boca */
 .mouth {
+    /* Posición y tamaño */
     position: absolute;
-    bottom: 40px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
-    height: 20px;
+    height: 30px;
+    /* Estilos visuales */
     background: #FF6B6B;
     border-radius: 0 0 30px 30px;
+    /* Animación */
     animation: chew 0.8s infinite;
 }
 
+/* Contenedor de uvas */
 .grapes-container {
+    /* Diseño de las uvas */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -67,66 +83,47 @@
     gap: 15px;
     margin: 30px auto;
     transition: opacity 0.5s ease;
-
 }
 
+/* Uva individual */
 .grape {
-    width: 40px;
-    height: 40px;
+    /* Tamaño y estilo */
+    width: 25px;
+    height: 25px;
     background: linear-gradient(135deg, #6a0dad, #8a2be2);
     border-radius: 50%;
     position: relative;
-    box-shadow:
-            0 4px 8px rgba(0, 0, 0, 0.3),
-            inset -5px -5px 10px rgba(0, 0, 0, 0.2),
-            inset 2px 2px 5px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset -5px -5px 10px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.1);
+    /* Animación */
     animation: float 3s ease-in-out infinite;
     animation-delay: calc(var(--i) * 0.1s);
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Rabito de la uva */
 .grape::before {
+    /* Posición y tamaño */
     content: '';
     position: absolute;
     top: -8px;
     left: 15px;
     width: 5px;
     height: 10px;
+    /* Estilos visuales */
     background: #228B22;
     border-radius: 5px;
     transform: rotate(20deg);
 }
 
+/* Uva comida */
 .grape.eaten {
+    /* Animación */
     animation: eatGrape 0.8s forwards, float 3s ease-in-out infinite;
 }
 
-.wish-animation {
-    position: absolute;
-    bottom: 60px; /* Adjust this value as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    width: 100%;
-    text-align: center;
-}
-
-
-.wish-star {
-    font-size: 4rem;
-    color: gold;
-    animation: twinkle 1.5s infinite alternate;
-    margin-bottom: 15px;
-}
-
-.wish-text {
-    font-size: 1.5rem;
-    color: #FFD700;
-    animation: fadeInOut 2s infinite;
-}
-
-/* Animations */
+/* Animaciones */
 @keyframes float {
+    /* Definición de la animación */
     0%, 100% {
         transform: translateY(0);
     }
@@ -136,6 +133,7 @@
 }
 
 @keyframes eatGrape {
+    /* Definición de la animación */
     0% {
         transform: translateY(0) scale(1);
         opacity: 1;
@@ -147,19 +145,6 @@
     100% {
         transform: translateY(-100px) scale(0);
         opacity: 0;
-    }
-}
-
-@keyframes twinkle {
-    from {
-        opacity: 0.7;
-        transform: scale(1);
-        text-shadow: 0 0 5px gold;
-    }
-    to {
-        opacity: 1;
-        transform: scale(1.2);
-        text-shadow: 0 0 20px gold, 0 0 30px gold;
     }
 }
 

@@ -31,6 +31,12 @@
 /* Efecto hover en los botones de control */
 .control-btn:hover {
   transform: scale(1.1);
+  background-color: #2D6A4F;
+}
+
+.control-btn svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* Botones de control */

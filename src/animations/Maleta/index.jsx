@@ -1,20 +1,23 @@
 import React from 'react';
 import './index.css';
 
-const WalkingAnimation = () => {
+const SuitcaseAnimation = () => {
     return (
-        <div className="street-scene">
-            <div className="person">
-                <div className="head"></div>
-                <div className="body"></div>
-                <div className="arm left-arm"></div>
-                <div className="arm right-arm"></div>
-                <div className="leg leftleg"></div>
-                <div className="leg rightleg"></div>
-                <div className="suitcase"></div>
+        <div className="ritual-container">
+            <div className="suitcase">
+                <div className="handle"></div>
+                <div className="body">
+                    <div className="pocket"></div>
+                    <div className="strap"></div>
+                    <div className="wheels">
+                        <div className="wheel"></div>
+                        <div className="wheel"></div>
+                    </div>
+                </div>
             </div>
+            <div className="ground"></div>
         </div>
     );
 };
 
-export default WalkingAnimation;
+export default SuitcaseAnimation;

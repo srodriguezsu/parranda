@@ -1,119 +1,185 @@
-.street-scene {
+/* Contenedor de la animación */
+.animation-container {
+    /* Posición y tamaño */
+    position: relative;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #0a0a2a, #1a1a3a);
-    position: relative;
     overflow: hidden;
+    /* Fondo degradado */
+    background: linear-gradient(to bottom, #0a0a2a, #1a1a3a);
 }
 
-.person {
+/* Suelo */
+.ground {
+    /* Posición y tamaño */
     position: absolute;
-    bottom: 50px;
-    left: -50px;
-    animation: walk 10s linear infinite;
-}
-
-.head {
-    width: 30px;
+    bottom: 0;
+    width: 100%;
     height: 30px;
-    background-color: #FFD700; /* Gold */
-    border-radius: 50%;
-    position: absolute;
-    top: -30px;
-    left: 10px;
+    /* Fondo degradado */
+    background: linear-gradient(to bottom, #8B4513, #A0522D);
 }
 
+/* Maleta */
+.suitcase {
+    /* Posición y tamaño */
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 120px;
+    height: 150px;
+    /* Animación */
+    animation: moveSuitcase 10s linear infinite;
+}
+
+/* Asa de la maleta */
+.handle {
+    /* Posición y tamaño */
+    position: absolute;
+    top: -90px;
+    width: 10px;
+    height: 100px;
+    /* Estilos visuales */
+    background-color: #333;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Cuerpo de la maleta */
 .body {
-    width: 20px;
-    height: 40px;
-    background-color: #4682B4; /* Steel blue */
-    position: absolute;
-    top: 0;
-    left: 15px;
+    /* Posición y tamaño */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Estilos visuales */
+    background-color: #5D8AA8;
+    border-radius: 10px;
+    border: 3px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.arm {
-    width: 25px;
-    height: 8px;
-    background-color: #4682B4;
+/* Bolsillo de la maleta */
+.pocket {
+    /* Posición y tamaño */
     position: absolute;
     top: 10px;
-}
-
-.left-arm {
-    left: -5px;
-    transform-origin: right center;
-    animation: swing-arm 0.5s linear infinite alternate;
-}
-
-.right-arm {
-    left: 30px;
-    transform-origin: left center;
-    animation: swing-arm 0.5s linear infinite alternate-reverse;
-}
-
-.leg {
-    width: 8px;
-    height: 30px;
-    background-color: #1E90FF; /* Dodger blue */
-    position: absolute;
-    top: 40px;
-}
-
-.leftleg {
-    left: 15px;
-    transform-origin: top center;
-    animation: swing-leg 0.5s linear infinite alternate;
-}
-
-.rightleg {
-    left: 27px;
-    transform-origin: top center;
-    animation: swing-leg 0.5s linear infinite alternate-reverse;
-}
-
-.suitcase {
+    left: 10px;
     width: 40px;
-    height: 25px;
-    background-color: #8B4513; /* Saddle brown */
+    height: 20px;
+    /* Estilos visuales */
+    background-color: #4A6B8A;
+    border-radius: 5px;
+    border: 2px solid #333;
+}
+
+/* Correa de la maleta */
+.strap {
+    /* Posición y tamaño */
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    width: 100px;
+    height: 5px;
+    /* Estilos visuales */
+    background-color: #333;
+    border-radius: 3px;
+}
+
+/* Ruedas de la maleta */
+.wheels {
+    /* Posición y tamaño */
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    /* Diseño de las ruedas */
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Rueda individual */
+.wheel {
+    /* Tamaño y estilo */
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+    border: 2px solid #666;
+}
+
+/* Animación de la maleta */
+@keyframes moveSuitcase {
+
+    10% {
+        transform: translateX(10%) translateY(-5px);
+    }
+    20% {
+        transform: translateX(20%) translateY(0px);
+    }
+    30% {
+        transform: translateX(30%) translateY(-3px);
+    }
+    40% {
+        transform: translateX(40%) translateY(0px);
+    }
+    50% {
+        transform: translateX(50%) translateY(-5px);
+    }
+    60% {
+        transform: translateX(60%) translateY(0px);
+    }
+    70% {
+        transform: translateX(70%) translateY(-3px);
+    }
+    80% {
+        transform: translateX(80%) translateY(0px);
+    }
+    90% {
+        transform: translateX(90%) translateY(-5px);
+    }
+
+}
+
+/* Nubes en el fondo */
+.animation-container::before {
+    /* Posición y tamaño */
+    content: "";
     position: absolute;
     top: 30px;
-    left: -20px;
-    animation: bounce-suitcase 0.5s linear infinite alternate;
+    left: 20%;
+    width: 100px;
+    height: 40px;
+    /* Estilos visuales */
+    background-color: white;
+    border-radius: 50px;
+    opacity: 0.8;
+    /* Animación */
+    animation: moveCloud 20s linear infinite;
 }
 
-@keyframes walk {
-    0% {
-        transform: translateX(-100px);
-    }
-    100% {
-        transform: translateX(100%);
-    }
+.animation-container::after {
+    /* Posición y tamaño */
+    content: "";
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    width: 150px;
+    height: 50px;
+    /* Estilos visuales */
+    background-color: white;
+    border-radius: 50px;
+    opacity: 0.8;
+    /* Animación */
+    animation: moveCloud 25s linear infinite;
 }
 
-@keyframes swing-arm {
-    0% {
-        transform: rotate(-20deg);
+/* Animación de las nubes */
+@keyframes moveCloud {
+    /* Definición de la animación */
+    from {
+        transform: translateX(100vw);
     }
-    100% {
-        transform: rotate(20deg);
-    }
-}
-
-@keyframes swing-leg {
-    0% {
-        transform: rotate(-15deg);
-    }
-    100% {
-        transform: rotate(15deg);
-    }
-}
-
-@keyframes bounce-suitcase {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(5px);
+    to {
+        transform: translateX(-200px);
     }
 }
