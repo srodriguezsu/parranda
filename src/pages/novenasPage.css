@@ -1,0 +1,63 @@
+.novenas-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  background-color: #D9A25F;
+  min-height: 100vh;
+  gap: 2rem;
+}
+
+.columna-velas {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  height: 100%;
+}
+
+.contenido-central {
+  flex: 1;
+  background-color: #7C1C1C;
+  border-radius: 20px;
+  color: white;
+  max-width: 700px;
+  padding: 2rem;
+  min-height: 500px;
+}
+
+.titulo-novena {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.columna-derecha {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.velas-izquierda-triangulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-right: 1rem;
+}
+
+.velas-base {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.vela-centro,
+.vela-izquierda,
+.vela-derecha {
+  width: 100px;
+  height: auto;
+  margin-top: 630px;
+}
+

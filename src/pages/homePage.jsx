@@ -34,12 +34,14 @@ const HomePage = () => {
                 alt="Soafa"
 
             />
+            <Link to="/novenas">
             <img
                 className="main-image"
                 src="/src/assets/Pesebre.svg"
                 alt="Pesebre"
 
             />
+            </Link>
             <img
                 className="main-image"
                 src="/src/assets/Sonido.svg"
