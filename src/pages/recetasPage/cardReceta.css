@@ -67,3 +67,30 @@
     /* Cambio de color de fondo */
     background-color: var(--color-amarillo);
 }
+
+
+/* Overlay covering the card */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+/* Content inside the overlay */
+.overlay-content {
+    text-align: center;
+    padding: 1rem;
+}
+
+.card-receta {
+    position: relative; /* Required for overlay positioning */
+}
