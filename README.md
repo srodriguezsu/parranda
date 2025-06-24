@@ -9,6 +9,7 @@
 
 ## Instrucciones de instalación
 1. Clonar el repositorio
-2. Instalar las dependencias con `npm install`
-3. Iniciar el servidor con `npm run dev`
-4. Abrir el navegador y acceder a `http://localhost:5173`
+2. Ir a la carpeta clonada
+3. Instalar las dependencias con `npm install`
+4. Iniciar el servidor con `npm run dev`
+5. Abrir el navegador y acceder a `http://localhost:5173`
