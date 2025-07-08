@@ -7,29 +7,29 @@ import './index.css';
 
 // Listas de canciones, tanto las que irán a la izquierda como a la derecha
 const listaCancionesIzq = [
-  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { nombre: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { nombre: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { nombre: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
+  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
+  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
+  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
 ];
 
 const listaCancionesDer = [
-  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { nombre: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { nombre: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { nombre: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { nombre: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { nombre: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },  
+  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
+  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
+  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
+  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
+  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
+  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
 ];
 
 // Lista de canciones combinada para que el reproductor pueda acceder a todas
@@ -90,7 +90,7 @@ const ParrandasPage = () => {
               {listaCancionesIzq.map((c, i) => (
                 <Cancion
                   key={`izq-${i}`}
-                  nombre={c.nombre}
+                  nombre={c.titulo}
                   artista={c.artista}
                   audioSrc={c.audioSrc}
                   onSelect={() => setIndiceActual(i)}
@@ -109,7 +109,7 @@ const ParrandasPage = () => {
               {listaCancionesDer.map((c, i) => (
                 <Cancion
                   key={`der-${i}`}
-                  nombre={c.nombre}
+                  nombre={c.titulo}
                   artista={c.artista}
                   audioSrc={c.audioSrc}
                   onSelect={() => setIndiceActual(listaCancionesIzq.length + i)}

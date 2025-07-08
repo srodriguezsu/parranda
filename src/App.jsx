@@ -7,6 +7,9 @@ import NotFound from "./pages/notFound.jsx";
 import RecetasPage from "./pages/recetasPage/index.jsx";
 import NovenasPage from "./pages/novenasPage/index.jsx";
 import JuegosPage from "./pages/juegosPage/index.jsx";
+import LoginPage from "./pages/loginPage/index.jsx";
+import SignupPage from "./pages/signupPage/index.jsx";
+import EditarRecetaPage from "./pages/editarRecetaPage/index.jsx";
 
 
 function App() {
@@ -16,6 +19,7 @@ function App() {
                 <Route path="/" element={<Index />} />
                 <Route path="/salon-de-parrandas" element={<ParrandasPage />} />
                 <Route path="/recetas" element={<RecetasPage />} />
+                <Route path="/recetas/:id" element={<EditarRecetaPage />} />
                 <Route path="/novenas" element={<NovenasPage />} />
                 <Route path="/juegos-y-rituales" element={<JuegosPage />} />
                 {/* 404 fallback */}

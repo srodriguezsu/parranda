@@ -58,6 +58,7 @@
 /* Efecto de escala en la imagen de la puerta */
 .puerta-image {
     transition: transform 0.5s;
+    animation: borderGlow 2s infinite linear;
 }
 
 .puerta-image:hover {
@@ -115,6 +116,7 @@
     z-index: 10;
     transition: transform 0.3s ease;
     margin-bottom: -6rem;
+    animation: borderGlow 2s infinite linear;
 }
 
 .comida-image:hover {
@@ -139,6 +141,7 @@
 .sonido-image {
     z-index: 10;
     transition: transform 0.5s ease;
+    animation: borderGlow 2s infinite linear;
 }
 
 .sonido-image:hover {
@@ -159,6 +162,7 @@
 .pesebre-image {
     transition: filter 0.3s ease;
     shape-rendering: geometricPrecision;
+    animation: borderGlow 2s infinite linear;
 }
 
 .pesebre-image:hover {
@@ -190,6 +194,18 @@
                 drop-shadow(0 0 15px rgba(255, 0, 0, 0.4));
     }
 }
+
+.puerta-image,
+.comida-image,
+.sonido-image,
+.pesebre-image {
+    filter:
+        drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+    border-radius: 1rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+
 
 /* Estilos para dispositivos con ancho máximo de 800px */
 @media (max-width: 800px) {

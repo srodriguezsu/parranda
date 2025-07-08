@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import './formReceta.css';
+import {useNavigate} from "react-router-dom";
+import {signup} from "../../services/authService.js";
+import {createRecipe} from "../../services/recetasService.js";
 
 const FormReceta = ({ onSubmit }) => {
+    const navigate = useNavigate();
+    const [token, setToken] = useState(localStorage.getItem('token') || null);
+    const [mensajeExito, setMensajeExito] = useState('');
+    const [mensajeError, setMensajeError] = useState('');
+
     // Estado inicial del formulario
     const [formData, setFormData] = useState({
-        nombre: '',
+        titulo: '',
         instrucciones: '',
-        autor: '',
-        imagen: null,
+        imagen: '',
     });
 
     // Función para manejar cambios en los campos de texto
@@ -22,11 +29,56 @@ const FormReceta = ({ onSubmit }) => {
     };
 
     // Función para manejar el envío del formulario
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert("Receta guardada exitosamente");
-        onSubmit(formData);
+
+        if (!token) {
+            alert("Por favor, inicia sesión para guardar la receta.");
+            navigate('/login');
+            return;
+        }
+        try {
+            console.log('form data:', formData);
+            const formDataToSend = new FormData();
+            formDataToSend.append('titulo', formData.titulo);
+            formDataToSend.append('instrucciones', formData.instrucciones);
+            formDataToSend.append('imagen', formData.imagen);
+
+            const data = await createRecipe(formDataToSend, token);
+            console.log(data);
+            setMensajeExito('¡Registro exitoso!');
+            setMensajeError('');
+            onSubmit(data);
+            setFormData({
+                titulo: '',
+                instrucciones: '',
+                imagen: '',
+            })
+
+        } catch (error) {
+            console.error('Error al guardar receta:', error.response?.data || error.message);
+            setMensajeError('Hubo un error al guardar receta. Intenta de nuevo.');
+            setMensajeExito('');
+        }
+
+
+
     };
+
+    if (!token) {
+        return (
+            <div className="form-receta-container">
+
+
+                <div className="form-receta">
+                    <h3>Por favor, inicia sesión para compartir una receta</h3>
+                    <button onClick={() => navigate('/login')}>Iniciar Sesión</button>
+                </div>
+
+            </div>
+        );
+    }
+
 
     // Renderizado del componente
     return (
@@ -40,10 +92,10 @@ const FormReceta = ({ onSubmit }) => {
                 <div>
                     <input
                         type="text"
-                        id="nombre"
-                        name="nombre"
-                        placeholder="Nombre de la receta"
-                        value={formData.nombre}
+                        id="titulo"
+                        name="titulo"
+                        placeholder="titulo de la receta"
+                        value={formData.titulo}
                         onChange={handleChange}
                         required
                     />
@@ -58,18 +110,6 @@ const FormReceta = ({ onSubmit }) => {
               onChange={handleChange}
               required
           />
-                </div>
-                {/* Campo de autor de la receta */}
-                <div>
-                    <input
-                        type="text"
-                        id="autor"
-                        name="autor"
-                        placeholder="Autor de la receta"
-                        value={formData.autor}
-                        onChange={handleChange}
-                        required
-                    />
                 </div>
                 {/* Campo de imagen de la receta */}
                 <div>

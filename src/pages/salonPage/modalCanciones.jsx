@@ -18,7 +18,7 @@ const ModalCanciones = ({ cancionesIzq, cancionesDer, onSelect }) => {
           {todas.map((c, i) => (
             <Cancion
               key={i}
-              nombre={c.nombre}
+              nombre={c.titulo}
               artista={c.artista}
               audioSrc={c.audioSrc}
               onSelect={() => onSelect(i)}
