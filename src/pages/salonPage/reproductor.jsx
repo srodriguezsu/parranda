@@ -64,7 +64,7 @@ const Reproductor = ({ cancion, siguiente, anterior }) => {
   return (
     <div className='reproductor'>
       <div className='display'>
-        <h1 className='nombreCancion'>{cancion.nombre}</h1>
+        <h1 className='nombreCancion'>{cancion.titulo}</h1>
         <h2 className='artista'>{cancion.artista}</h2>
       </div>
       

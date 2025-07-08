@@ -13,14 +13,14 @@ import Maleta from "../../animations/Maleta/index.jsx";
 const rituales = [
   {
     id: 1,
-    nombre: "12 Uvas",
+    titulo: "12 Uvas",
     descripcion: "Come 12 uvas a medianoche pidiendo un deseo por cada una.",
     imagen: "/src/assets/frame_1.svg",
     animation: <Uvas />,
   },
   {
     id: 2,
-    nombre: "Maleta de viajes",
+    titulo: "Maleta de viajes",
     descripcion: "Da una vuelta a la cuadra con una maleta para atraer viajes.",
     imagen: "/src/assets/frame_1.svg",
     animation: <Maleta/>,
@@ -29,25 +29,25 @@ const rituales = [
   },
   {
     id: 3,
-    nombre: "Ropa interior amarilla",
+    titulo: "Ropa interior amarilla",
     descripcion: "Usa ropa interior amarilla para atraer prosperidad.",
     imagen: "/src/assets/frame_1.svg",
     animation: <Amarilla/>,
   },
   { id: 4,
-    nombre: "Barrido de casa",
+    titulo: "Barrido de casa",
     descripcion: "Barre la casa para sacar las malas energías del año viejo.",
     imagen: "/src/assets/frame_1.svg",
     animation: <Barrido/>
   },
   { id: 5,
-    nombre: "Brindis con champán",        
+    titulo: "Brindis con champán",
     descripcion: "Brinda con champán a la medianoche para celebrar el nuevo año.",
     imagen: "/src/assets/frame_1.svg",
     animation: <Champagne/>
   },
   { id: 6,
-    nombre: "Velas de colores", 
+    titulo: "Velas de colores",
     descripcion: "Enciende velas de diferentes colores para atraer diversas energías.",
     imagen: "/src/assets/frame_1.svg",
     animation: <Velas/>
@@ -79,7 +79,7 @@ const index = () => {
                   {/* Lado derecho de la tarjeta */}
                   <div className="lado-derecho">
                     {/* Título del ritual */}
-                    <h3>{ritual.nombre}</h3>
+                    <h3>{ritual.titulo}</h3>
                     {/* Descripción del ritual */}
                     <p>{ritual.descripcion}</p>
                   </div>
