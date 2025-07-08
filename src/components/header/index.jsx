@@ -28,6 +28,7 @@ const Index = ({ pageTitle }) => {
     }, [])
 
 
+    // TODO: Add a logout function to clear user data and token
     return (
         <header className="header-container">
             <button

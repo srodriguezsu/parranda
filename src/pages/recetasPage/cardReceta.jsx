@@ -6,7 +6,7 @@ const CardReceta = ({ receta }) => {
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
     const toggleOverlay = () => setIsOverlayVisible(!isOverlayVisible);
-
+// TODO: add the functionality to like a recipe
     return (
         <div className="card-receta">
             <img src={API_URL + '/' + receta.imagen_url} alt={receta.titulo} className="receta-image" />

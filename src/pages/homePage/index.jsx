@@ -3,6 +3,7 @@ import './index.css';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
+    // TODO: Agregar boton de login
     return (
         <div className="grid-layout">
             {/* Sección del Árbol de Navidad */}

@@ -6,16 +6,8 @@ const EditarRecetaPage = () => {
     const token = localStorage.getItem("token");
     const navigate = useNavigate();
     const {id} = useParams();
-    if (!token) {
-        return (
-            <div>
-                <Header pageTitle="Editar Receta" />
-                <p>Por favor, inicia sesión para editar la receta.</p>
-                <button onClick={()=>navigate('/login')}>Iniciar sesión</button>
-            </div>
-        );
-    }
 
+    // TODO finish the editing and deleting recipe functionality
     return (
         <div>
             <Header pageTitle="Editar Receta" />

@@ -50,6 +50,8 @@ const Login = () => {
 
                 <button type="submit">Iniciar Sesión</button>
             </form>
+
+            {/*TODO: add a link to the signup page*/}
         </div>
     );
 };
