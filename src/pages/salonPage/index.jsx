@@ -4,39 +4,13 @@ import Cancion from './cancion.jsx';
 import Reproductor from './reproductor';
 import ModalCanciones from './modalCanciones.jsx';
 import './index.css';
+import { getCanciones } from '../../services/salonService';
 
-// Listas de canciones, tanto las que irán a la izquierda como a la derecha
-const listaCancionesIzq = [
-  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-];
 
-const listaCancionesDer = [
-  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-  { titulo: "El Ausente", artista: "Pastor López", audioSrc: "src/assets/canciones/EL AUSENTE - PASTOR LOPEZ.mp3" },
-  { titulo: "Aguila Roja", artista: "Comercial 3D Navidad", audioSrc: "src/assets/canciones/Aguila Roja comercial 3d Navidad.mp3" },
-  { titulo: "Cariñito", artista: "Rodolfo Aicardi", audioSrc: "src/assets/canciones/CARIÑITO - RODOLFO AICARDI.mp3" },
-];
-
-// Lista de canciones combinada para que el reproductor pueda acceder a todas
-const listaCanciones = [...listaCancionesIzq, ...listaCancionesDer];
-
-// Componente principal de la página del salón de parrandas
 const ParrandasPage = () => {
+
+  const [loading, setLoading] = useState(true);
+
   // Estado para manejar si la pantalla es móvil o no
   const [esMovil, setEsMovil] = useState(window.innerWidth < 1060);
   const [mostrarModal, setMostrarModal] = useState(false);
@@ -48,9 +22,40 @@ const ParrandasPage = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // 🟢 Estado para guardar las canciones
+  const [listaCanciones, setListaCanciones] = useState([]);
+
+  // 🔁 useEffect para cargar las canciones al montar el componente
+  useEffect(() => {
+  const cargarCanciones = async () => {
+    try {
+      const data = await getCanciones();
+      setListaCanciones(data);
+    } catch (error) {
+      console.error('Error al obtener canciones:', error);
+    } finally {
+      setLoading(false); // <- Cuando termina (con éxito o error), quitamos el "cargando"
+    }
+  };
+
+  cargarCanciones();
+  }, []);
+
+  const mitad = Math.ceil(listaCanciones.length / 2);
+  const listaCancionesIzq = listaCanciones.slice(0, mitad);
+  const listaCancionesDer = listaCanciones.slice(mitad);
+
   // Estado para manejar el índice de la canción actual
   const [indiceActual, setIndiceActual] = useState(0);
   const cancionActual = listaCanciones[indiceActual];
+
+  if (loading) {
+  return (
+    <div className="loading">
+      <Header pageTitle={"Salón de Parrandas"} />
+      <p style={{ textAlign: "center", marginTop: "2rem" }}>Cargando canciones...</p>
+    </div>
+  );}
 
   return (
     <div>
