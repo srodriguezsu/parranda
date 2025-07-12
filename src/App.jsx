@@ -19,9 +19,11 @@ function App() {
                 <Route path="/" element={<Index />} />
                 <Route path="/salon-de-parrandas" element={<ParrandasPage />} />
                 <Route path="/recetas" element={<RecetasPage />} />
-                <Route path="/recetas/:id" element={<EditarRecetaPage />} />
+                <Route path="/receta/:id" element={<EditarRecetaPage />} />
                 <Route path="/novenas" element={<NovenasPage />} />
                 <Route path="/juegos-y-rituales" element={<JuegosPage />} />
+                <Route path="/login" element={<LoginPage/>} />
+                <Route path="/signUp" element={<SignupPage/>} />
                 {/* 404 fallback */}
                 <Route path="*" element={<NotFound />} />
             </Routes>

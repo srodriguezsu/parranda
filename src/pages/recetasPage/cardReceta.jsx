@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './cardReceta.css';
 import {API_URL} from "../../services/recetasService.js";
+import {useNavigate} from "react-router-dom";
 
 const CardReceta = ({ receta }) => {
-    const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+    const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
 
 // TODO: add the functionality to like a recipe
@@ -14,21 +16,27 @@ const CardReceta = ({ receta }) => {
                 <h3 className="receta-title">{receta.titulo}</h3>
                 <p className="receta-author">Por: {receta.nombre_autor}</p>
                 <p className="receta-rating">{receta.valoracion} <i className="fas fa-star"></i></p>
-                <button className="receta-button" onClick={toggleOverlay}>
-                    Ver más
-                </button>
-            </div>
-            {isOverlayVisible && (
-                <div className="card-overlay">
-                    <div className="overlay-content">
-                        <h3>Instrucciones {receta.titulo}</h3>
-                        <p>{receta.instrucciones}</p>
-                        <button className="receta-button" onClick={toggleOverlay}>
-                            Cerrar
-                        </button>
-                    </div>
+                <div>
+                    <button className="receta-button" onClick={()=>navigate("/receta/" + receta.id)}>
+                        Ver más
+                    </button>
+                    {
+                        token ? (
+                            <>
+                                <button className="receta-button like-button" onClick={() => alert('Funcionalidad de me gusta aún no implementada')}>
+                                    <i className="fas fa-thumbs-down" style={{ transform: 'scaleX(-1)' }}></i>
+                                </button>
+                                <button className="receta-button like-button" onClick={() => alert('Funcionalidad de me gusta aún no implementada')}>
+                                    <i className="fas fa-thumbs-up"></i>
+                                </button>
+                            </>
+
+                        ) : null
+                    }
+
                 </div>
-            )}
+
+            </div>
         </div>
     );
 };

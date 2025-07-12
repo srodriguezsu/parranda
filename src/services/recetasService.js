@@ -7,7 +7,37 @@ export async function getRecipes() {
     console.log(response.data);
     return response.data;
 }
-export async function createRecipe(data) {
-    const response = await axios.post(`${API_URL}/recetas`, data);
+
+export async function getRecipeById(id) {
+    const response = await axios.get(API_URL + '/recetas/' + id);
+    return response.data;
+}
+
+
+export async function createRecipe(recipe, token) {
+    const response = await axios.post(API_URL + '/recetas', recipe, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return response.data;
+}
+
+export async function updateRecipeById(id, recipe, token) {
+    const response = await axios.put(API_URL + '/recetas/' + id, recipe, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return response.data;
+}
+
+export async function deleteRecipe(id, token) {
+    const response = await axios.delete(API_URL + '/recetas/' + id,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
     return response.data;
 }

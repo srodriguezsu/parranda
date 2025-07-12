@@ -9,7 +9,7 @@
     /* Centra la cuadrícula horizontalmente */
     margin: auto;
     /* Imagen de fondo */
-    background-image: url('/src/assets/suelo.png');
+    background-image: url('/src/assets/suelo.jpg');
     /* Posición de la imagen */
     background-position: bottom;
     /* Evita que la imagen se repita */
