@@ -5,7 +5,7 @@ import {API_URL} from "../../services/recetasService.js";
 const CardReceta = ({ receta }) => {
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
-    const toggleOverlay = () => setIsOverlayVisible(!isOverlayVisible);
+
 // TODO: add the functionality to like a recipe
     return (
         <div className="card-receta">

@@ -62,3 +62,24 @@
     /* Cambio de color de fondo */
     background-color: var(--color-amarillo);
 }
+
+.mensaje-exito {
+    /* Estilo para el mensaje de éxito */
+    background-color: var(--color-verde);
+    color: white;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.mensaje-error {
+    background-color: var(--color-rojo);
+    color: white;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+}

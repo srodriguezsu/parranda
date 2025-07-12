@@ -3,26 +3,11 @@ import { getRecipes } from "../../services/recetasService.js";
 import CardReceta from "./cardReceta.jsx";
 import './listRecetas.css';
 
-const ListRecetas = () => {
+const ListRecetas = ({recetas, isLoading}) => {
     // Estado para almacenar las recetas
-    const [recetas, setRecetas] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
 
-    // Función para obtener las recetas
-    const fetchRecetas = async () => {
-        setIsLoading(true);
-        // Llamada al servicio de recetas
-        const recipes = await getRecipes();
-        // Actualización del estado con las recetas obtenidas
-        setRecetas(recipes);
-        setIsLoading(false);
-    };
 
-    // Efecto para obtener las recetas al montar el componente
-    useEffect(() => {
-        // Llamada a la función de obtención de recetas
-        fetchRecetas().then();
-    }, []);
+
 
     if (isLoading) {
         return (

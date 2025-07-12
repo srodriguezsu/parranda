@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './formReceta.css';
 import {useNavigate} from "react-router-dom";
-import {signup} from "../../services/authService.js";
 import {createRecipe} from "../../services/recetasService.js";
 
-const FormReceta = ({ onSubmit }) => {
+const FormReceta = ({onRecetaAgregada}) => {
     const navigate = useNavigate();
-    const [token, setToken] = useState(localStorage.getItem('token') || null);
+    const token = localStorage.getItem('token');
     const [mensajeExito, setMensajeExito] = useState('');
     const [mensajeError, setMensajeError] = useState('');
 
@@ -44,11 +43,20 @@ const FormReceta = ({ onSubmit }) => {
             formDataToSend.append('instrucciones', formData.instrucciones);
             formDataToSend.append('imagen', formData.imagen);
 
-            const data = await createRecipe(formDataToSend, token);
+            const data = await createRecipe(formDataToSend, token).catch((error) => {
+                if (error.response.status === 401) {
+                    alert('Por favor, inicia sesión para guardar la receta.');
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    navigate('/login');
+                }
+            });
             console.log(data);
+            if (onRecetaAgregada) {
+                onRecetaAgregada(data);
+            }
             setMensajeExito('¡Registro exitoso!');
-            setMensajeError('');
-            onSubmit(data);
+            setMensajeError(null);
             setFormData({
                 titulo: '',
                 instrucciones: '',
@@ -58,7 +66,7 @@ const FormReceta = ({ onSubmit }) => {
         } catch (error) {
             console.error('Error al guardar receta:', error.response?.data || error.message);
             setMensajeError('Hubo un error al guardar receta. Intenta de nuevo.');
-            setMensajeExito('');
+            setMensajeExito(null);
         }
 
 
@@ -84,6 +92,10 @@ const FormReceta = ({ onSubmit }) => {
     return (
         // Contenedor del formulario
         <div className="form-receta-container">
+            {/* Mensaje de éxito */}
+            {mensajeExito && <div className="mensaje-exito">{mensajeExito}</div>}
+            {/* Mensaje de error */}
+            {mensajeError && <div className="mensaje-error">{mensajeError}</div>}
             {/* Título del formulario */}
             <h2 className="title">Comparte tu receta</h2>
             {/* Formulario */}

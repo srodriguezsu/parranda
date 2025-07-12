@@ -5,10 +5,12 @@ import {getSelf} from "../../services/authService.js";
 
 const Index = ({ pageTitle }) => {
     const navigate = useNavigate();
-    const [user, setUser] = useState(() => {
-        const storedUser = localStorage.getItem('user');
-        return storedUser ? JSON.parse(storedUser) : null;
-    });
+    const [user, setUser] = useState(null);
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        setUser(null);
+    }
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -16,19 +18,14 @@ const Index = ({ pageTitle }) => {
         if (token && !user) {
             getSelf(token)
                 .then(data => {
-                    console.log("fetching user data", data);
-                    localStorage.setItem('user', JSON.stringify(data.user));
                     setUser(data.user);
                 })
                 .catch(err => {
                     localStorage.removeItem('token');
-                    localStorage.removeItem('user');
                 });
         }
     }, [])
 
-
-    // TODO: Add a logout function to clear user data and token
     return (
         <header className="header-container">
             <button
@@ -40,7 +37,22 @@ const Index = ({ pageTitle }) => {
             <h1>{pageTitle}</h1>
             <div className="user-info">
                 {user ? (
-                    <span className="bienvenidaText"> Bienvenido, {user.nombre}</span>
+                    <div className="user-dropdown">
+                        <span
+                            className="bienvenidaText user-dropdown__name"
+                            tabIndex={0}
+                        >
+                            Bienvenido, {user.nombre}
+                        </span>
+                        <button
+                            className="btn-logout user-dropdown__logout"
+                            onClick={handleLogout}
+                            tabIndex={-1}
+                        >
+                            Cerrar sesión
+                        </button>
+                    </div>
+
                 )
                     :(
                         <span className="iniciarText" onClick={ () => navigate('/login')}> Iniciar sesion </span>

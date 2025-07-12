@@ -49,9 +49,8 @@ const Login = () => {
                 />
 
                 <button type="submit">Iniciar Sesión</button>
+                <p>¿No tienes cuenta? <a href="#" onClick={() => navigate('/signup')}>Regístrate aquí</a></p>
             </form>
-
-            {/*TODO: add a link to the signup page*/}
         </div>
     );
 };
