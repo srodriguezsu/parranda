@@ -13,7 +13,7 @@
 
 .titulo-receta {
     font-size: 2rem;
-    color: #333;
+    color: #ffffff;
 }
 
 .instrucciones-label {
@@ -21,7 +21,15 @@
     font-weight: bold;
 }
 
+.recipe-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
 .instrucciones-texto {
+    color: rgb(255, 255, 255);
     background-color: var(--color-amarillo);
     padding: 1rem;
     border: 1px solid #ccc;
@@ -49,7 +57,7 @@
 }
 
 .formulario-edicion {
-    background-color: #f0f0f0;
+    background-color: #a7a6a6;
     padding: 1.5rem;
     border-radius: 10px;
     display: flex;
@@ -84,11 +92,10 @@
 }
 
 .btn-cancelar {
-    background-color: #aaa;
+    background-color: #bc5a5a;
     color: white;
     border: none;
     border-radius: 5px;
-    margin-left: 1rem;
     padding: 0.5rem 1rem;
 }
 

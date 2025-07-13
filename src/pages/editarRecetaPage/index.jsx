@@ -3,6 +3,7 @@ import './index.css';
 import Header from "../../components/header/index.jsx";
 import { useNavigate, useParams } from "react-router-dom";
 import { getRecipeById, updateRecipeById, deleteRecipe } from "../../services/recetasService.js";
+import {API_URL} from "../../services/recetasService.js";
 
 const EditarRecetaPage = () => {
     const token = localStorage.getItem("token");
@@ -12,9 +13,11 @@ const EditarRecetaPage = () => {
     const [receta, setReceta] = useState(null);
     const [editando, setEditando] = useState(false);
     const [borrando, setBorrando] = useState(false);
+    // Estado inicial del formulario
     const [formData, setFormData] = useState({
         titulo: '',
         instrucciones: '',
+        imagen: '',
     });
 
     const fetchReceta = async (id) => {
@@ -43,17 +46,28 @@ const EditarRecetaPage = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await updateRecipeById(id, formData, token);
-            alert("Receta actualizada correctamente");
-            setEditando(false);
-            fetchReceta(id);
-        } catch (error) {
-            console.error("Error al actualizar receta:", error);
-            alert("Hubo un problema al actualizar la receta");
+    e.preventDefault();
+    try {
+        const formDataToSend = new FormData();
+        
+        formDataToSend.append('titulo', formData.titulo);
+        formDataToSend.append('instrucciones', formData.instrucciones);
+
+        
+        if (formData.imagen) {
+            formDataToSend.append('imagen', formData.imagen);
         }
-    };
+
+        await updateRecipeById(id, formDataToSend, token);
+        alert("Receta actualizada correctamente");
+        setEditando(false);
+        fetchReceta(id);
+    } catch (error) {
+        console.error("Error al actualizar receta:", error);
+        alert("Hubo un problema al actualizar la receta");
+    }
+};
+
 
     const handleDelete = async () => {
         try {
@@ -64,6 +78,10 @@ const EditarRecetaPage = () => {
             console.error("Error al eliminar receta:", error);
             alert("Hubo un problema al eliminar la receta");
         }
+    };
+
+    const handleImageChange = (e) => {
+        setFormData({ ...formData, imagen: e.target.files[0] });
     };
 
     if (!receta) {
@@ -89,6 +107,8 @@ const EditarRecetaPage = () => {
                         <h2 className="titulo-receta">{receta.titulo}</h2>
                         <p className="instrucciones-label"><strong>Instrucciones:</strong></p>
                         <p className="instrucciones-texto">{receta.instrucciones}</p>
+                        <img src={API_URL + '/' + receta.imagen_url} alt={receta.titulo} className="recipe-image" />
+                        
 
                         {token && (
                             <div className="botones-edicion">
@@ -117,6 +137,17 @@ const EditarRecetaPage = () => {
                                 name="instrucciones"
                                 value={formData.instrucciones}
                                 onChange={handleChange}
+                            />
+                        </div>
+
+                        <div>
+                            <label htmlFor="imagen">Imagen:</label>
+                            <input
+                                type="file"
+                                id="imagen"
+                                name="imagen"
+                                accept="image/*"
+                                onChange={handleImageChange}
                             />
                         </div>
 
