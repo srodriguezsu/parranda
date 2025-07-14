@@ -17,6 +17,7 @@ const Reproductor = ({ cancion, siguiente, anterior }) => {
     if (!audio) return;
 
     if (audio.paused) {
+      console.log("Intentando reproducir:", audio.src);
       audio.play();
       setIsPlaying(true);
     } else {
@@ -44,11 +45,24 @@ const Reproductor = ({ cancion, siguiente, anterior }) => {
 
     // Efecto para cargar y reproducir la cancion seleccionada
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.load();
-      audioRef.current.play();
-      setIsPlaying(true);
-    }
+  const audio = audioRef.current;
+  if (!audio) return;
+
+  const reproducir = () => {
+    audio.play()
+      .then(() => setIsPlaying(true))
+      .catch((err) => {
+        console.error("Error al reproducir:", err);
+        setIsPlaying(false);
+      });
+  };
+
+  audio.load(); // Carga la nueva canción
+  audio.addEventListener("loadedmetadata", reproducir); // Espera a que cargue
+
+  return () => {
+    audio.removeEventListener("loadedmetadata", reproducir);
+    };
   }, [cancion]);
 
     // Formatea el tiempo en minutos y segundos
@@ -68,7 +82,7 @@ const Reproductor = ({ cancion, siguiente, anterior }) => {
         <h2 className='artista'>{cancion.artista}</h2>
       </div>
       
-      <audio ref={audioRef} src={cancion.audioSrc} preload="metadata" />
+      <audio ref={audioRef} src={cancion?.url} preload="metadata" />
 
       <div className='controls'>
         <button className='btnPrev' onClick={anterior}>

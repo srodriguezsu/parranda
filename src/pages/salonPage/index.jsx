@@ -30,11 +30,18 @@ const ParrandasPage = () => {
   const cargarCanciones = async () => {
     try {
       const data = await getCanciones();
-      setListaCanciones(data);
+
+      // Construir la URL completa desde el backend
+      const cancionesConUrl = data.map(c => ({
+        ...c,
+        url: `http://localhost:3456/uploads/audios/${encodeURIComponent(c.url)}`
+      }));
+
+      setListaCanciones(cancionesConUrl);
     } catch (error) {
       console.error('Error al obtener canciones:', error);
     } finally {
-      setLoading(false); // <- Cuando termina (con éxito o error), quitamos el "cargando"
+      setLoading(false);
     }
   };
 
@@ -97,7 +104,7 @@ const ParrandasPage = () => {
                   key={`izq-${i}`}
                   nombre={c.titulo}
                   artista={c.artista}
-                  audioSrc={c.audioSrc}
+                  audioSrc={`http://localhost:3456/uploads/audios/${encodeURIComponent(c.url)}`}
                   onSelect={() => setIndiceActual(i)}
                 />
               ))}
@@ -116,7 +123,7 @@ const ParrandasPage = () => {
                   key={`der-${i}`}
                   nombre={c.titulo}
                   artista={c.artista}
-                  audioSrc={c.audioSrc}
+                  audioSrc={`http://localhost:3456/uploads/audios/${encodeURIComponent(c.url)}`}
                   onSelect={() => setIndiceActual(listaCancionesIzq.length + i)}
                 />
               ))}

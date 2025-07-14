@@ -1,56 +1,88 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
-import { useState, useRef } from 'react';
 import { FaBackward, FaPlay, FaForward, FaPause } from 'react-icons/fa';
+import { getVillancicos } from "../../services/villancicosService";
 
 const ReproductorVillancicos = () => {
-    // Lista de canciones
-    const songs = [
-        { title: "Antón", path: "src/assets/villancicos/Antón, Villancico Animado - Mundo Canticuentos.mp3" },
-        { title: "Los peces en el rio", path: "src/assets/villancicos/Los Peces En El Río, Villancico Animado - Mundo Canticuentos [yfpBMrJZt1Q].mp3" },
-        { title: "Mi burrito sabanero", path: "src/assets/villancicos/Mi Burrito Sabanero, Juana – Mundo Canticuentos.mp3" },
-        { title: "Tutaina", path: "src/assets/villancicos/Tutaina, Villancico Animado - Mundo Canticuentos.mp3" },
-        { title: "Ven a nuestras almas", path: "src/assets/villancicos/VEN A NUESTRAS ALMAS-  VILLANCICO TRADICIONAL.mp3" },
-    ];
-
-    // Estados para controlar la canción actual y si se está reproduciendo
-    const [currentSong, setCurrentSong] = useState(0);
+    const [listaVillancicos, setListaVillancicos] = useState([]);
+    const [currentSongIndex, setCurrentSongIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const audioRef = useRef(null);
 
-    // Referencia al objeto Audio
-    const audioRef = useRef(new Audio(songs[currentSong].path));
+    useEffect(() => {
+        const cargarVillancicos = async () => {
+            try {
+                const data = await getVillancicos();
+                const villancicosConUrl = data.map(c => ({
+                    ...c,
+                    url: `http://localhost:3456/uploads/audios/${encodeURIComponent(c.url)}`
+                }));
+                setListaVillancicos(villancicosConUrl);
+            } catch (error) {
+                console.error('Error al obtener villancicos:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    // Función para reproducir la canción
-    const playSong = () => {
-        audioRef.current.play();
-        setIsPlaying(true);
-    };
+        cargarVillancicos();
+    }, []);
 
-    // Función para pausar la canción
-    const pauseSong = () => {
-        audioRef.current.pause();
-        setIsPlaying(false);
-    };
+    useEffect(() => {
+        if (listaVillancicos.length === 0) return;
 
-    // Función para cambiar de canción
-    const skipSong = (direction) => {
-        audioRef.current.pause();
-        let newIndex = currentSong + direction;
-
-        if (newIndex < 0) {
-            newIndex = songs.length - 1; // Ir al final si se pasa al principio
-        } else if (newIndex >= songs.length) {
-            newIndex = 0; // Ir al principio si se pasa al final
+        // Reemplazar el audio cuando cambia la canción actual
+        if (audioRef.current) {
+            audioRef.current.pause();
         }
 
-        setCurrentSong(newIndex);
-        audioRef.current = new Audio(songs[newIndex].path);
-        if (isPlaying) audioRef.current.play(); // Reproducir si estaba reproduciendo
+        audioRef.current = new Audio(listaVillancicos[currentSongIndex].url);
+        if (isPlaying) {
+            audioRef.current.play();
+        }
+
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+            }
+        };
+    }, [currentSongIndex, listaVillancicos]);
+
+    const playSong = () => {
+        if (audioRef.current) {
+            audioRef.current.play();
+            setIsPlaying(true);
+        }
     };
+
+    const pauseSong = () => {
+        if (audioRef.current) {
+            audioRef.current.pause();
+            setIsPlaying(false);
+        }
+    };
+
+    const skipSong = (direction) => {
+        if (listaVillancicos.length === 0) return;
+
+        let newIndex = currentSongIndex + direction;
+
+        if (newIndex < 0) {
+            newIndex = listaVillancicos.length - 1;
+        } else if (newIndex >= listaVillancicos.length) {
+            newIndex = 0;
+        }
+
+        setCurrentSongIndex(newIndex);
+    };
+
+    if (loading) return <p>Cargando villancicos...</p>;
+    if (listaVillancicos.length === 0) return <p>No hay villancicos disponibles.</p>;
 
     return (
         <div className="reproductor-container">
-            <h3>{songs[currentSong].title}</h3>
+            <h3>{listaVillancicos[currentSongIndex].titulo}</h3>
             <div className="controles">
                 <button className="control-btn" onClick={() => skipSong(-1)}>
                     <FaBackward />

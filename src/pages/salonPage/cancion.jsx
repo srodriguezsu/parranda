@@ -5,6 +5,7 @@ import './Cancion.css';
 const Cancion = ({ nombre, artista, audioSrc, onSelect }) => {
     const handleClick = () => {
         if (onSelect) onSelect({ titulo: nombre, artista, audioSrc });
+        console.log(`Reproduciendo: ${audioSrc}`);
     };
 
     return (
