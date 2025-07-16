@@ -41,3 +41,22 @@ export async function deleteRecipe(id, token) {
         });
     return response.data;
 }
+
+export async function likeReceta(id, token) {
+    console.log(API_URL + '/recetas/' + id + '/like');
+    const response = await axios.post(API_URL + '/recetas/' + id + '/like', {}, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return response.data;
+}
+
+export async function dislikeReceta(id, token) {
+    const response = await axios.post(API_URL + '/recetas/' + id + '/dislike', {}, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return response.data;
+}
