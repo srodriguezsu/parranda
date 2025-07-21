@@ -22,10 +22,10 @@ const ParrandasPage = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // 🟢 Estado para guardar las canciones
+  // Estado para guardar las canciones
   const [listaCanciones, setListaCanciones] = useState([]);
 
-  // 🔁 useEffect para cargar las canciones al montar el componente
+  // useEffect para cargar las canciones al montar el componente
   useEffect(() => {
   const cargarCanciones = async () => {
     try {
@@ -63,6 +63,15 @@ const ParrandasPage = () => {
       <p style={{ textAlign: "center", marginTop: "2rem" }}>Cargando canciones...</p>
     </div>
   );}
+
+  if (listaCanciones.length === 0) {
+    return (
+      <div>
+        <Header pageTitle={"Salón de Parrandas"} />
+        <p style={{ textAlign: "center", marginTop: "2rem" }}>No hay canciones disponibles</p>
+      </div>
+    );
+  }
 
   return (
     <div>
