@@ -1,104 +1,182 @@
+
+/* Estilos base */
 .pagina-editar-receta {
-    padding: 2rem;
+    padding: 2rem 1rem;
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
     font-family: Arial, sans-serif;
+    min-height: 100vh;
+    color: var(--color-negro);
 }
 
 .vista-receta {
-    background-color: var(--color-amarillo);
-    padding: 1rem;
-    border-radius: 10px;
+
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
 }
 
 .titulo-receta {
-    font-size: 2rem;
-    color: #ffffff;
+    font-size: 1.75rem;
+    color: var(--color-negro);
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
 }
 
 .instrucciones-label {
-    margin-top: 1rem;
-    font-weight: bold;
+    margin: 1.5rem 0 0.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-negro);
 }
 
 .recipe-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 1rem;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .instrucciones-texto {
-    color: rgb(255, 255, 255);
-    background-color: var(--color-amarillo);
-    padding: 1rem;
-    border: 1px solid #ccc;
+    color: var(--color-negro);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1.25rem;
+    border: none;
     white-space: pre-wrap;
-    border-radius: 5px;
+    border-radius: 0.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
-.botones-edicion button {
-    margin-right: 1rem;
-    padding: 0.5rem 1rem;
+/* Botones */
+.botones-edicion {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .btn-editar {
-    background-color: #4caf50;
-    color: white;
+    background-color: var(--color-verde);
+    color: var(--color-blanco);
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-borrar {
-    background-color: #f44336;
-    color: white;
+    background-color: var(--color-rojo);
+    color: var(--color-blanco);
+
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
+.btn-editar:hover, .btn-borrar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-editar:active, .btn-borrar:active {
+    transform: translateY(0);
+}
+
+/* Formulario de edición */
 .formulario-edicion {
-    background-color: #a7a6a6;
-    padding: 1.5rem;
-    border-radius: 10px;
+    background-color: var(--color-gris);
+    padding: 1.75rem;
+    border-radius: 0.75rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .campo-formulario {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
 }
 
 .etiqueta-formulario {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-negro);
 }
 
 .input-formulario,
 .textarea-formulario {
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ddd;
     font-size: 1rem;
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+    transition: all 0.3s ease;
+}
+
+.textarea-formulario {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.input-formulario:focus,
+.textarea-formulario:focus {
+    border-color: var(--color-verde);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2);
+}
+
+/* Botones del formulario */
+.botones-formulario {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 .btn-guardar {
-    background-color: #2196f3;
-    color: white;
+    background-color: var(--color-verde);
+    color: var(--color-blanco);
     border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-cancelar {
-    background-color: #bc5a5a;
-    color: white;
+    background-color: var(--color-rojo);
+    color: var(--color-blanco);
     border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
+.btn-guardar:hover, .btn-cancelar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -109,13 +187,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .modal-content {
-    background-color: white;
+    background-color: var(--color-blanco);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 0.75rem;
     text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 }
 
 .modal-buttons {
@@ -123,22 +205,73 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .btn-confirmar {
-    background-color: #d32f2f;
-    color: white;
-    padding: 0.5rem 1rem;
+    background-color: var(--color-rojo);
+    color: var(--color-blanco);
+    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
+.btn-confirmar:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+}
+
+/* Estado de carga */
 .cargando-container {
     text-align: center;
-    margin-top: 2rem;
+    margin: 2rem 0;
 }
 
 .cargando-texto {
-    font-size: 1.2rem;
-    color: #666;
+    font-size: 1.1rem;
+    color: var(--color-negro);
+    font-weight: 500;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .pagina-editar-receta {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .titulo-receta {
+        font-size: 1.5rem;
+    }
+
+    .botones-edicion, .botones-formulario {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .btn-editar, .btn-borrar, .btn-guardar, .btn-cancelar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .vista-receta, .formulario-edicion {
+        padding: 1.25rem;
+    }
+
+    .titulo-receta {
+        font-size: 1.35rem;
+    }
+
+    .instrucciones-texto {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
 }
