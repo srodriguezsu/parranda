@@ -14,7 +14,7 @@ const SignUp = () => {
         e.preventDefault();
 
         const usuario = {
-            titulo: nombre,
+            nombre: nombre,
             email: correo,
             password: contrasena
         };

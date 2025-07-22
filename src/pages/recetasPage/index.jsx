@@ -13,9 +13,34 @@ const Index = () => {
     const [selectedReceta, setSelectedReceta] = useState(null);
     const [actionType, setActionType] = useState(null); // 'like' o 'dislike'
 
+    const mensajes = {
+        like: '¿Deseas agregar esta receta a tus favoritos?',
+        dislike: '¿Deseas eliminar esta receta de tus favoritos?',
+        likeAgain: 'Ya has dado like a esta receta',
+        dislikeAgain: 'Ya has dado dislike a esta receta'
+    }
+
+    const mensajes2 = {
+        like: '¿Estás seguro de que deseas dar like a esta receta?',
+        dislike: '¿Estás seguro de que deseas dar dislike a esta receta?',
+        likeAgain: 'Ya has dado like a esta receta',
+        dislikeAgain: 'Ya has dado dislike a esta receta'
+    }
+
     const openModal = (receta, action) => {
-    setSelectedReceta(receta);
-    setActionType(action);
+        //if (action === 'like' && receta.mi_like === 1) return;
+        //if (action === 'dislike' && receta.mi_like === -1) return;
+        if (action === 'like' && receta.mi_like === 1) {
+            setActionType("likeAgain");
+        }
+
+        else if (action === 'dislike' && receta.mi_like === -1) {
+            setActionType("dislikeAgain");
+        }
+        else {
+            setActionType(action);
+        }
+        setSelectedReceta(receta);
     };
 
     const closeModal = () => {
@@ -50,18 +75,16 @@ const Index = () => {
             {selectedReceta && (
     <div className="modal-overlay">
         <div className="modal-content">
-            <h3>{actionType === 'like' ? 'Dar like?' : 'Dar dislike?'}</h3>
+            <h3>{mensajes[actionType]}</h3>
             <p>
-                {actionType === 'like'
-                    ? '¿Estás seguro de que deseas dar like a esta receta?'
-                    : '¿Estás seguro de que deseas dar dislike a esta receta?'}
+                {mensajes2[actionType]}
             </p>
             <div className="modal-buttons">
                 <button
                     className="btn-confirmar"
                     onClick={async () => {
                         try {
-                            if (actionType === 'like') {
+                            if (actionType === 'like' || actionType === 'likeAgain') {
                                 await likeReceta(selectedReceta.id, token);
                             } else {
                                 await dislikeReceta(selectedReceta.id, token);

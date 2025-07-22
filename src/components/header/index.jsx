@@ -12,6 +12,16 @@ const Index = ({ pageTitle }) => {
         setUser(null);
     }
 
+
+    const handleComeback = () => {
+        const path = window.location.pathname;
+        if (/^\/receta\/[^/]+$/.test(path)) {
+            navigate(-1);
+        } else {
+            navigate("/");
+        }
+    }
+
     useEffect(() => {
         const token = localStorage.getItem('token');
 
@@ -29,7 +39,7 @@ const Index = ({ pageTitle }) => {
     return (
         <header className="header-container">
             <button
-                onClick={() => navigate('/')}
+                onClick={handleComeback}
                 className="back-button"
             >
                 <i className="fas fa-arrow-left"></i>

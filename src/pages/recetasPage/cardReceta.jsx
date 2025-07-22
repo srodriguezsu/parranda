@@ -39,6 +39,7 @@ const CardReceta = ({ receta, onAction }) => {
     }
     return (
         <div className="card-receta">
+            {console.log("")}
             <img src={API_URL + '/' + receta?.imagen_url} alt={receta?.titulo} className="receta-image" />
             <div className="receta-content">
                 <h3 className="receta-title">{receta?.titulo}</h3>
@@ -50,7 +51,7 @@ const CardReceta = ({ receta, onAction }) => {
                         let color = 'lightgray'; // neutro
 
                         if (currentReceta?.valoracion > 0 && i < currentReceta.valoracion) {
-                            color = 'red'; // likes
+                            color = "var(--color-amarillo)"; // likes
                         } else if (currentReceta?.valoracion < 0 && i < Math.abs(currentReceta.valoracion)) {
                             color = 'gray'; // dislikes
                         }
@@ -74,10 +75,10 @@ const CardReceta = ({ receta, onAction }) => {
                         token ? (
                             <>
                                 <button className="receta-button like-button" onClick={() => onAction(currentReceta, 'dislike')}>
-                                    <i className="fas fa-thumbs-down" style={{ transform: 'scaleX(-1)' }}></i>
+                                    <i className="fas fa-thumbs-down" style={{ transform: 'scaleX(-1)', color: currentReceta.mi_like === -1 ? 'grey' : undefined }}></i>
                                 </button>
                                 <button className="receta-button like-button" onClick={() => onAction(currentReceta, 'like')}>
-                                    <i className="fas fa-thumbs-up"></i>
+                                    <i className="fas fa-thumbs-up" style={{ color: currentReceta.mi_like === 1 ? 'grey' : undefined }}> </i>
                                 </button>
                             </>
 

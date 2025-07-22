@@ -38,6 +38,13 @@ const Index = () => {
 
             {/* Sección del Pesebre con enlace a Novenas */}
             <div className="item pesebre">
+
+                <div className="picture-frame">
+                <Link to="/login" className="person-icon">
+                <i class="fa-regular fa-user"></i>
+                </Link>
+                </div>
+
                 <Link to="/novenas" className="pesebre-image">
                     <img
                         src="/src/assets/Pesebre.svg"

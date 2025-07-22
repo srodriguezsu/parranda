@@ -40,6 +40,20 @@ const Index = () => {
                         <Vela className="vela-izquierda" />
                         <Vela className="vela-derecha" />
                     </div>
+
+                    <div className="velas-base">
+                        <Vela className="vela-izquierda" />
+                        <Vela className="vela-derecha" />
+                        <Vela className="vela-derecha" />   
+                    </div>
+
+                    <div className="velas-base">
+                        <Vela className="vela-izquierda" />
+                        <Vela className="vela-derecha" />   
+                    </div>
+
+                    <Vela className="vela-centro" />
+                    
                 </div>
 
                 <div className="contenido-central">
@@ -65,7 +79,10 @@ const Index = () => {
                         <BotonNovena texto="Oración al Niño Jesús" ancho="90%" onClick={() => openModal("Oración al Niño Jesús")} />
                         <BotonNovena texto="Aspiraciones para la venida del Niño Dios" ancho="90%" onClick={() => openModal("Aspiraciones para la venida del Niño Dios")} />
                     </div>
+
+                    
                 </div>
+                
 
                 <div className="columna-derecha">
                     <ReproductorVillancicos />
@@ -73,6 +90,20 @@ const Index = () => {
                         <Vela className="vela-izquierda" />
                         <Vela className="vela-derecha" />
                     </div>
+
+                    <div className="velas-base">
+                        <Vela className="vela-izquierda" />
+                        <Vela className="vela-derecha" />
+                        <Vela className="vela-derecha" />
+                    </div>
+
+                    <div className="velas-base">
+                        <Vela className="vela-izquierda" />
+                        <Vela className="vela-derecha" />
+                        
+                    </div>
+
+                    <Vela className="vela-centro" />
                 </div>
             </div>
 
