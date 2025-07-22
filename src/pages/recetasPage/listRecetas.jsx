@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { getRecipes } from "../../services/recetasService.js";
+import React from 'react';
 import CardReceta from "./cardReceta.jsx";
 import './listRecetas.css';
 
-const ListRecetas = ({recetas, isLoading}) => {
-    // Estado para almacenar las recetas
-
-
-
+const ListRecetas = ({ recetas, isLoading, onAction }) => {
 
     if (isLoading) {
         return (
@@ -18,16 +13,16 @@ const ListRecetas = ({recetas, isLoading}) => {
     }
 
     return (
-        // Contenedor de la lista de recetas
         <div className="list-recetas-container">
-            {/* Título de la lista */}
             <h2 className="title">Recetas de la comunidad</h2>
 
-            {/* Lista de recetas */}
             <div className="recetas-list">
-                {/* Mapeo de las recetas y renderizado de tarjetas */}
                 {recetas.map((receta, index) => (
-                    <CardReceta receta={receta} key={index} />
+                    <CardReceta 
+                        receta={receta} 
+                        key={index} 
+                        onAction={onAction} 
+                    />
                 ))}
             </div>
         </div>

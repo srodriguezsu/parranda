@@ -2,6 +2,7 @@
 .card-receta {
     /* Diseño de columna */
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     /* Estilos visuales */
@@ -14,6 +15,17 @@
     margin: 1em;
     /* Efecto de transición */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* resto del estilo */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
 }
 
 /* Efecto hover en la tarjeta */

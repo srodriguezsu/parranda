@@ -3,20 +3,22 @@ import './cardReceta.css';
 import {API_URL, dislikeReceta, likeReceta} from "../../services/recetasService.js";
 import {useNavigate} from "react-router-dom";
 
-const CardReceta = ({ receta }) => {
+const CardReceta = ({ receta, onAction }) => {
 
     const [currentReceta, setReceta] = useState(receta);
     const navigate = useNavigate();
     const token = localStorage.getItem('token');
+    const [liked, setLiked] = useState(false);
+    const [disliked, setDisliked] = useState(false);
 
 
 
     const onLike = async () => {
         try {
-            const response = await likeReceta(receta.id, token);
-            alert(response.message);
+            const response = await likeReceta(receta.id, token);        
             // Aquí podrías actualizar el estado de la receta si es necesario
             setReceta(response.receta);
+            setLiked(false);
             console.log(response);
         } catch (error) {
             console.error('Error:', error);
@@ -29,6 +31,7 @@ const CardReceta = ({ receta }) => {
             alert(response.message);
             // Aquí podrías actualizar el estado de la receta si es necesario
             setReceta(response.receta);
+            setDisliked(false);
             console.log(response);
         } catch (error) {
             console.error('Error:', error);
@@ -70,11 +73,11 @@ const CardReceta = ({ receta }) => {
                     {
                         token ? (
                             <>
-                                <button className="receta-button like-button" onClick={onDislike}>
-                                    <i className="fas fa-thumbs-down" style={{ transform: 'scaleX(-1)', color: currentReceta.mi_like === -1 ? 'grey' : undefined }}></i>
+                                <button className="receta-button like-button" onClick={() => onAction(currentReceta, 'dislike')}>
+                                    <i className="fas fa-thumbs-down" style={{ transform: 'scaleX(-1)' }}></i>
                                 </button>
-                                <button className="receta-button like-button"  onClick={onLike}>
-                                    <i className="fas fa-thumbs-up" style={{ color: currentReceta.mi_like === 1 ? 'grey' : undefined }}></i>
+                                <button className="receta-button like-button" onClick={() => onAction(currentReceta, 'like')}>
+                                    <i className="fas fa-thumbs-up"></i>
                                 </button>
                             </>
 
@@ -84,6 +87,8 @@ const CardReceta = ({ receta }) => {
                 </div>
 
             </div>
+
+
         </div>
     );
 };
