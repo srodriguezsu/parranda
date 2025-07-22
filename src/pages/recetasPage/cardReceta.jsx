@@ -42,17 +42,27 @@ const CardReceta = ({ receta }) => {
                 <p className="receta-author">Por: {receta?.nombre_autor}</p>
                 {currentReceta.mi_like}
                 <p className="receta-rating">
-
                     {Array.from({ length: 5 }, (_, i) => {
-                        const show = i < currentReceta?.valoracion ? '' : '-o';
-                        return(
-                        <i
-                            key={i}
-                            className={`fas fa-heart${show}`}
-                            style={{margin: 1}}
-                        ></i>
-                    )})}
+                        let iconClass = 'fas fa-heart';
+                        let color = 'lightgray'; // neutro
+
+                        if (currentReceta?.valoracion > 0 && i < currentReceta.valoracion) {
+                            color = 'red'; // likes
+                        } else if (currentReceta?.valoracion < 0 && i < Math.abs(currentReceta.valoracion)) {
+                            color = 'gray'; // dislikes
+                        }
+
+                        return (
+                            <i
+                                key={i}
+                                className={iconClass}
+                                style={{ color, margin: 1 }}
+                            ></i>
+                        );
+                    })}
                 </p>
+
+
                 <div>
                     <button className="receta-button" onClick={()=>navigate("/receta/" + receta?.id)}>
                         Ver más
@@ -61,10 +71,10 @@ const CardReceta = ({ receta }) => {
                         token ? (
                             <>
                                 <button className="receta-button like-button" onClick={onDislike}>
-                                    <i className="fas fa-thumbs-down" style={{ transform: 'scaleX(-1)', color: currentReceta.mi_like === 1 ? 'grey' : undefined }}></i>
+                                    <i className="fas fa-thumbs-down" style={{ transform: 'scaleX(-1)', color: currentReceta.mi_like === -1 ? 'grey' : undefined }}></i>
                                 </button>
                                 <button className="receta-button like-button"  onClick={onLike}>
-                                    <i className="fas fa-thumbs-up" style={{ color: currentReceta.mi_like === -1 ? 'grey' : undefined }}></i>
+                                    <i className="fas fa-thumbs-up" style={{ color: currentReceta.mi_like === 1 ? 'grey' : undefined }}></i>
                                 </button>
                             </>
 
