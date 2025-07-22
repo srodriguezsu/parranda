@@ -7,6 +7,7 @@ import './index.css';
 import {getRecipes} from "../../services/recetasService.js";
 
 const Index = () => {
+    const token = localStorage.getItem("token");
     const [recetas, setRecetas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -14,7 +15,7 @@ const Index = () => {
     const fetchRecetas = async () => {
         setIsLoading(true);
         // Llamada al servicio de recetas
-        const recipes = await getRecipes();
+        const recipes = await getRecipes(token);
         // Actualización del estado con las recetas obtenidas
         setRecetas(recipes);
         setIsLoading(false);

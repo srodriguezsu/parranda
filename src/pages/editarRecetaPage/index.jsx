@@ -22,6 +22,7 @@ const EditarRecetaPage = () => {
 
     const fetchReceta = async (id) => {
         try {
+            console.log("Obteniendo receta con ID:", id);
             const recetaObtenida = await getRecipeById(id);
             setReceta(recetaObtenida);
             setFormData({

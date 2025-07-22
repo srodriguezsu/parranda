@@ -2,8 +2,12 @@
 
 export const API_URL = 'http://localhost:3456';
 
-export async function getRecipes() {
-    const response = await axios.get( API_URL + '/recetas');
+export async function getRecipes(token) {
+    const response = await axios.get( API_URL + '/recetas', {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
     console.log(response.data);
     return response.data;
 }
