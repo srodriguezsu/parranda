@@ -88,7 +88,8 @@
 
 /* Mensajes de estado */
 .mensaje-exito {
-    color: var(--color-verde);
+    background-color: var(--color-blanco);
+    border: 0.8rem solid var(--color-verde);
     font-weight: 600;
     text-align: center;
     margin: 0.5rem 0;
@@ -96,7 +97,8 @@
 }
 
 .mensaje-error {
-    color: var(--color-rojo);
+    background-color: var(--color-blanco);
+    border: 0.8rem solid var(--color-rojo);
     font-weight: 600;
     text-align: center;
     margin: 0.5rem 0;

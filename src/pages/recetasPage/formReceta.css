@@ -65,8 +65,8 @@
 
 .mensaje-exito {
     /* Estilo para el mensaje de éxito */
-    background-color: var(--color-verde);
-    color: white;
+    background-color: var(--color-blanco);
+    border: 0.8rem solid var(--color-verde);
     font-weight: bold;
     margin-top: 1rem;
     padding: 1rem;
@@ -75,8 +75,8 @@
 }
 
 .mensaje-error {
-    background-color: var(--color-rojo);
-    color: white;
+    background-color: var(--color-blanco);
+    border: 0.8rem solid var(--color-rojo);
     font-weight: bold;
     margin-top: 1rem;
     padding: 1rem;
