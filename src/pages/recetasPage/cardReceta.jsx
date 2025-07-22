@@ -40,7 +40,7 @@ const CardReceta = ({ receta }) => {
             <div className="receta-content">
                 <h3 className="receta-title">{receta?.titulo}</h3>
                 <p className="receta-author">Por: {receta?.nombre_autor}</p>
-                {currentReceta.mi_like}
+                {currentReceta.valoracion}
                 <p className="receta-rating">
                     {Array.from({ length: 5 }, (_, i) => {
                         let iconClass = 'fas fa-heart';

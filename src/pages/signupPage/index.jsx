@@ -35,44 +35,53 @@ const SignUp = () => {
     };
 
     return (
-        <div>
+        <>
             <Header pageTitle={"Formulario de Registro"} />
 
-            <form onSubmit={handleSubmit} className="signup-form">
-                <label htmlFor="nombre">Nombre</label>
-                <input
-                    type="text"
-                    id="nombre"
-                    value={nombre}
-                    onChange={(e) => setNombre(e.target.value)}
-                    required
-                />
+            <main className="signup-page-container">
 
-                <label htmlFor="correo">Correo electrónico</label>
-                <input
-                    type="email"
-                    id="correo"
-                    value={correo}
-                    onChange={(e) => setCorreo(e.target.value)}
-                    required
-                />
+                <form onSubmit={handleSubmit} className="signup-form">
+                    <h2>¡Únete a la comunidad navideña!</h2>
+                    <p>Descubre, comparte y saborea las mejores recetas de Navidad mientras disfrutas de música festiva.<br/>
+                        Crea tu cuenta y comienza a vivir el espíritu navideño. </p>
+                    <label htmlFor="nombre">Nombre</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        value={nombre}
+                        onChange={(e) => setNombre(e.target.value)}
+                        required
+                    />
 
-                <label htmlFor="contrasena">Contraseña</label>
-                <input
-                    type="password"
-                    id="contrasena"
-                    value={contrasena}
-                    onChange={(e) => setContrasena(e.target.value)}
-                    required
-                />
+                    <label htmlFor="correo">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="correo"
+                        value={correo}
+                        onChange={(e) => setCorreo(e.target.value)}
+                        required
+                    />
 
-                <button type="submit">Registrarse</button>
+                    <label htmlFor="contrasena">Contraseña</label>
+                    <input
+                        type="password"
+                        id="contrasena"
+                        value={contrasena}
+                        onChange={(e) => setContrasena(e.target.value)}
+                        required
+                    />
 
-                {/* Mensajes de éxito o error */}
-                {mensajeExito && <p className="mensaje-exito">{mensajeExito}</p>}
-                {mensajeError && <p className="mensaje-error">{mensajeError}</p>}
-            </form>
-        </div>
+                    <button type="submit">Registrarse</button>
+
+                    {/* Mensajes de éxito o error */}
+                    {mensajeExito && <p className="mensaje-exito">{mensajeExito}</p>}
+                    {mensajeError && <p className="mensaje-error">{mensajeError}</p>}
+                </form>
+            </main>
+
+
+
+        </>
     );
 };
 

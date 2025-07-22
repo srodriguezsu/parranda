@@ -26,31 +26,36 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div >
             <Header pageTitle={"Formulario de Inicio de Sesión"} />
+            <main className="login-page-container">
+                <form onSubmit={handleSubmit} className="login-form">
+                    <h2>Bienvenido</h2>
+                    <p>Inicia sesión para seguir compartiendo las recetas que unen generaciones y ambienta tu hogar con música navideña al mejor estilo colombiano.</p>
+                    <label htmlFor="correo">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="correo"
+                        value={correo}
+                        onChange={(e) => setCorreo(e.target.value)}
+                        required
+                    />
 
-            <form onSubmit={handleSubmit} className="login-form">
-                <label htmlFor="correo">Correo electrónico</label>
-                <input
-                    type="email"
-                    id="correo"
-                    value={correo}
-                    onChange={(e) => setCorreo(e.target.value)}
-                    required
-                />
+                    <label htmlFor="contrasena">Contraseña</label>
+                    <input
+                        type="password"
+                        id="contrasena"
+                        value={contrasena}
+                        onChange={(e) => setContrasena(e.target.value)}
+                        required
+                    />
 
-                <label htmlFor="contrasena">Contraseña</label>
-                <input
-                    type="password"
-                    id="contrasena"
-                    value={contrasena}
-                    onChange={(e) => setContrasena(e.target.value)}
-                    required
-                />
+                    <button type="submit">Iniciar Sesión</button>
+                    <p>¿No tienes cuenta? <a href="#" onClick={() => navigate('/signup')}>Regístrate aquí</a></p>
+                </form>
+            </main>
 
-                <button type="submit">Iniciar Sesión</button>
-                <p>¿No tienes cuenta? <a href="#" onClick={() => navigate('/signup')}>Regístrate aquí</a></p>
-            </form>
+
         </div>
     );
 };
