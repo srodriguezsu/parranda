@@ -12,7 +12,11 @@ const CardReceta = ({ receta, onAction }) => {
     const [disliked, setDisliked] = useState(false);
 
 
-
+    useEffect(() => {
+        if (!receta.imagen_url) {
+            console.log('Receta sin imagen, asignando imagen por defecto', receta);
+        }
+    }, [receta]);
     const onLike = async () => {
         try {
             const response = await likeReceta(receta.id, token);        
@@ -39,7 +43,6 @@ const CardReceta = ({ receta, onAction }) => {
     }
     return (
         <div className="card-receta">
-            {console.log("")}
             <img src={API_URL + '/' + receta?.imagen_url} alt={receta?.titulo} className="receta-image" />
             <div className="receta-content">
                 <h3 className="receta-title">{receta?.titulo}</h3>

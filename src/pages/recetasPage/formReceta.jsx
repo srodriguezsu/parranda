@@ -37,7 +37,7 @@ const FormReceta = ({onRecetaAgregada}) => {
             return;
         }
         try {
-            console.log('form data:', formData);
+
             const formDataToSend = new FormData();
             formDataToSend.append('titulo', formData.titulo);
             formDataToSend.append('instrucciones', formData.instrucciones);
@@ -51,7 +51,6 @@ const FormReceta = ({onRecetaAgregada}) => {
                     navigate('/login');
                 }
             });
-            console.log(data);
             if (onRecetaAgregada) {
                 onRecetaAgregada(data);
             }
